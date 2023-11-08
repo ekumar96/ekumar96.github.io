@@ -1,59 +1,7 @@
-@font-face {
-    font-family: myFont;
-    src:url(fonts/apple_garamond/AppleGaramond.ttf)
-    /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-BookCond.otf)*/
-    /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-LtCond.otf)*/
-}
-
-@font-face {
-    font-family: myFont-Italic;
-    src:url(fonts/apple_garamond/AppleGaramond-Italic.ttf)
-    /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-BookCond-Italic.otf) */
-    /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-LtCond-Italic.otf)*/
-}
-
-@font-face {
-  font-family: Poppins;
-  src:url(fonts/Poppins/Poppins-Regular.ttf)
-  /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-BookCond-Italic.otf) */
-  /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-LtCond-Italic.otf)*/
-}
-
-* {
-    box-sizing: border-box;
-    margin:0;
-    padding:0;
-    /*font-family: Poppins, myFont, Arial;*/
-    font-family: myFont, Arial;
-    scroll-behavior: smooth;
-}
-
-a {
-  text-decoration: none;
-}
-
-body {
-    background-color: black;
-    color: white;
-}
-
-body::-webkit-scrollbar {
-  display:none;
-}
-
-.background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 270vh;
-    background-color: blue;
-    z-index: -100;
-}
-
 /*a:focus { text-decoration: none; color:gray; }
 a:visited, a:hover, a:active { text-decoration: none; color:white }
 */
+
 .navbar {
     /*background-image: linear-gradient(to right, #FF5733, #6D80ED);*/
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
