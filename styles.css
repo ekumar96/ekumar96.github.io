@@ -1,0 +1,266 @@
+@font-face {
+    font-family: myFont;
+    src:url(fonts/apple_garamond/AppleGaramond.ttf)
+    /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-BookCond.otf)*/
+    /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-LtCond.otf)*/
+}
+
+@font-face {
+    font-family: myFont-Italic;
+    src:url(fonts/apple_garamond/AppleGaramond-Italic.ttf)
+    /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-BookCond-Italic.otf) */
+    /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-LtCond-Italic.otf)*/
+}
+
+@font-face {
+  font-family: Poppins;
+  src:url(fonts/Poppins/Poppins-Regular.ttf)
+  /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-BookCond-Italic.otf) */
+  /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-LtCond-Italic.otf)*/
+}
+
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    /*font-family: Poppins, myFont, Arial;*/
+    font-family: myFont, Arial;
+    scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+body::-webkit-scrollbar {
+  display:none;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 270vh;
+    background-color: blue;
+    z-index: -100;
+}
+
+/*a:focus { text-decoration: none; color:gray; }
+a:visited, a:hover, a:active { text-decoration: none; color:white }
+*/
+.navbar {
+    /*background-image: linear-gradient(to right, #FF5733, #6D80ED);*/
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+    background-image: linear-gradient(180deg, rgb(0% 0% 0%) 0%, rgb(0% 0% 0% / 0.99609375) 6.25%, rgb(0% 0% 0% / 0.984375) 12.5%, rgb(0% 0% 0% / 0.96484375) 18.75%, rgb(0% 0% 0% / 0.9375) 25%, rgb(0% 0% 0% / 0.90234375) 31.25%, rgb(0% 0% 0% / 0.859375) 37.5%, rgb(0% 0% 0% / 0.80859375) 43.75%, rgb(0% 0% 0% / 0.75) 50%, rgb(0% 0% 0% / 0.68359375) 56.25%, rgb(0% 0% 0% / 0.609375) 62.5%, rgb(0% 0% 0% / 0.52734375) 68.75%, rgb(0% 0% 0% / 0.4375) 75%, rgb(0% 0% 0% / 0.33984375) 81.25%, rgb(0% 0% 0% / 0.234375) 87.5%, rgb(0% 0% 0% / 0.12109375) 93.75%, rgb(0% 0% 0% / 0) 100% );
+    
+    height: 80px;
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    /*max-width: 1300px;*/
+    margin: 0 auto;
+    padding: 0px 50px;
+}
+
+#navbar__logo {
+    color: white;
+    /*background-image: linear-gradient(to top, rgb(0, 0, 15) -60%, white 100%);*/
+    background-size: 100%;
+    /*-webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;*/
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 3rem;
+    min-width: 224px;
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.navbar__item {
+    height: 80px;
+
+}
+
+.navbar__links {
+    color:white;
+    display: flex;
+
+    width: 125px;
+    height: 100%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+    min-width: 78px;
+}
+
+.button {
+    /*uigradients.com*/
+    display: flex;
+    padding: 10px 20px;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border: 3px solid transparent;
+    outline: none;
+    border-radius: 40px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    transition: all 0.3s;
+}
+
+.button:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border: solid;
+  border-width: 3px;
+
+}
+
+
+
+.navbar__links:hover {
+    color: gray;
+    transition: all 0.3s ease
+}
+
+@media screen and (max-width: 960px) {
+    .navbar__container {
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        z-index: 1;
+        width: 100%;
+        max-width: 1300px;
+        padding: 0;
+    }
+
+    .navbar__menu {
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: -1000px;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: -1;
+    }
+
+    .navbar__menu.is-active {
+        background-image: linear-gradient(180deg, rgb(0% 0% 0%) 0%, rgb(0% 0% 0% / 0.9999847412109375) 6.25%, rgb(0% 0% 0% / 0.999755859375) 12.5%, rgb(0% 0% 0% / 0.9987640380859375) 18.75%, rgb(0% 0% 0% / 0.99609375) 25%, rgb(0% 0% 0% / 0.9904632568359375) 31.25%, rgb(0% 0% 0% / 0.980224609375) 37.5%, rgb(0% 0% 0% / 0.9633636474609375) 43.75%, rgb(0% 0% 0% / 0.9375) 50%, rgb(0% 0% 0% / 0.8998870849609375) 56.25%, rgb(0% 0% 0% / 0.847412109375) 62.5%, rgb(0% 0% 0% / 0.7765960693359375) 68.75%, rgb(0% 0% 0% / 0.68359375) 75%, rgb(0% 0% 0% / 0.5641937255859375) 81.25%, rgb(0% 0% 0% / 0.413818359375) 87.5%, rgb(0% 0% 0% / 0.2275238037109375) 93.75%, rgb(0% 0% 0% / 0) 100% );
+        top: 100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: -1;
+        height: 60vh;
+        font-size: 1.6rem;
+        align-items: top;
+    }
+
+    .navbar.is-active {
+        transition: all 0.5s ease;
+        background-color: black;
+    }
+
+    #navbar__logo {
+        padding-left: 25px;
+    }
+
+    .navbar__toggle .bar {
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: white;
+    }
+
+    .navbar__item {
+        width: 100%;
+    }
+
+    .navbar__links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    .navbar__btn {
+        padding-bottom: 2rem;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 80px;
+        margin: 0;
+    }
+    
+    .button:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  
+    #mobile-menu {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+
+    .navbar__toggle, .navbar__toggle .bar {
+        display: block;
+        cursor: pointer;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(2) {
+        opacity: 0; 
+    }
+    #mobile-menu.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+        
+    }
+    #mobile-menu.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
