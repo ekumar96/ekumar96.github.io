@@ -51,7 +51,7 @@ body::-webkit-scrollbar {
     z-index: -100;
 }
 
-.main__btn {
+.main_btn {
   font-size: 1.8rem;
   background: white;
   padding: 20px 60px;
@@ -63,7 +63,7 @@ body::-webkit-scrollbar {
   outline: none;
 }
 
-.main__btn:before {
+.main_btn:before {
   position: absolute;
   content: '';
   top: -4px;
@@ -83,7 +83,7 @@ body::-webkit-scrollbar {
   text-decoration: none;
 }
 
-.main__btn:after {
+.main_btn:after {
   position: absolute;
   content: '';
   top: 0;
@@ -96,11 +96,11 @@ body::-webkit-scrollbar {
   visibility: hidden;
 }
 
-.main__btn:hover .btn_text {
+.main_btn:hover .btn_text {
   color: white;
 }
 
-.main__btn:hover:after {
+.main_btn:hover:after {
   width: 100%;
   visibility: visible;
 }

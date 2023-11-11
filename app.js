@@ -1,7 +1,7 @@
 const menu = document.querySelector('#mobile-menu');
-const menuLinks = document.querySelector('.navbar__menu');
+const menuLinks = document.querySelector('.navbar_menu');
 const navBar = document.querySelector('.navbar');
-const navLogo = document.querySelector('#navbar__logo')
+const navLogo = document.querySelector('#navbar_logo')
 
 // Display Mobile Menu
 const mobileMenu = () => {
