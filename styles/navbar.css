@@ -1,7 +1,6 @@
 /*a:focus { text-decoration: none; color:gray; }
 a:visited, a:hover, a:active { text-decoration: none; color:white }
 */
-
 .navbar {
     /*background-image: linear-gradient(to right, #FF5733, #6D80ED);
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));*/
@@ -21,9 +20,9 @@ a:visited, a:hover, a:active { text-decoration: none; color:white }
     justify-content: space-between;
     height: 80px;
     width: 100%;
+    z-index: 1;
     margin: 0 auto;
     padding: 0px 50px;
-    z-index: 1;
 }
 
 #navbar__logo {
@@ -67,38 +66,30 @@ a:visited, a:hover, a:active { text-decoration: none; color:white }
 
 /* Button Styles*/
 .navbar__btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1rem;
-    width: 100%;
-    min-width: 78px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  width: 100%;
+  min-width: 78px;
 }
 
-.button {
-    /*uigradients.com*/
-    display: flex;
-    padding: 10px 20px;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    border: 3px solid transparent;
-    outline: none;
-    border-radius: 40px;
-    background-color: white;
-    color: black;
-    transition: all 0.3s;
+.contact_btn {
+  /*uigradients.com*/
+  font-size: 1.2rem;
+  display: flex;
+  padding: 10px 20px;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border: 3px solid transparent;
+  outline: none;
+  transition: all 0.3s;
 }
 
-/* Hover Effects */
-.button:hover {
-  background-color: rgba(0, 0, 0, 0);
-  color: white;
-  border: solid 3px white;
 
-}
 
 .navbar__links:hover {
     color: gray;
@@ -131,11 +122,11 @@ a:visited, a:hover, a:active { text-decoration: none; color:white }
     .navbar__menu.is-active {
         background-image: linear-gradient(180deg, rgb(0% 0% 0%) 0%, rgb(0% 0% 0% / 0.9999847412109375) 6.25%, rgb(0% 0% 0% / 0.999755859375) 12.5%, rgb(0% 0% 0% / 0.9987640380859375) 18.75%, rgb(0% 0% 0% / 0.99609375) 25%, rgb(0% 0% 0% / 0.9904632568359375) 31.25%, rgb(0% 0% 0% / 0.980224609375) 37.5%, rgb(0% 0% 0% / 0.9633636474609375) 43.75%, rgb(0% 0% 0% / 0.9375) 50%, rgb(0% 0% 0% / 0.8998870849609375) 56.25%, rgb(0% 0% 0% / 0.847412109375) 62.5%, rgb(0% 0% 0% / 0.7765960693359375) 68.75%, rgb(0% 0% 0% / 0.68359375) 75%, rgb(0% 0% 0% / 0.5641937255859375) 81.25%, rgb(0% 0% 0% / 0.413818359375) 87.5%, rgb(0% 0% 0% / 0.2275238037109375) 93.75%, rgb(0% 0% 0% / 0) 100% );
         top: 100%;
-        height: 60vh;
-        font-size: 1.6rem;
         opacity: 1;
         transition: all 0.5s ease;
         z-index: -1;
+        height: 60vh;
+        font-size: 1.6rem;
         align-items: top;
     }
 
@@ -171,7 +162,7 @@ a:visited, a:hover, a:active { text-decoration: none; color:white }
         padding-bottom: 2rem;
     }
 
-    .button {
+    .contact_btn {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -180,7 +171,7 @@ a:visited, a:hover, a:active { text-decoration: none; color:white }
         margin: 0;
     }
     
-    .button:hover {
+    .contact_btn:hover {
       background-color: rgba(0, 0, 0, 0.5);
     }
   
@@ -207,4 +198,3 @@ a:visited, a:hover, a:active { text-decoration: none; color:white }
         transform: translateY(-8px) rotate(-45deg);
     }
 }
-
