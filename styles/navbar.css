@@ -89,8 +89,6 @@ a:visited, a:hover, a:active { text-decoration: none; color:white }
   transition: all 0.3s;
 }
 
-
-
 .navbar_links:hover {
     color: gray;
     transition: all 0.3s ease
