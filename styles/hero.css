@@ -1,0 +1,113 @@
+/* Hero Section */
+.hero {
+    /*background-color: blue;/*linear-gradient(to-right, #161616, #000000);*/
+    padding: 80px;
+    height: 90% 
+}
+
+.hero_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.hero_words {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 90%;
+    text-align: center;
+    padding: 30px;
+}
+
+.hero_heading {
+    font-size: 100px;
+    margin-bottom: 24px;
+    color: white;
+
+}
+
+.hero_heading span {
+    background: #ee0979;
+    background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);
+    background: linear-gradient(to right, #ff6a00, #ee0979);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    
+}
+
+.hero_words p {
+  font-size: 30px;
+  color: rgb(219, 216, 216)
+}
+
+.hero_scroll {
+  font-size: 60px;
+  background: #da22ff;
+  background: #ee0979;
+  background: -webkit-linear-gradient(to right, #9114ff, #da22ff);
+  background: linear-gradient(to right, #8f0eff, #da22ff);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.highlight {
+    border-bottom: 4px solid rgb(10, 150, 100);
+}
+
+.hero_img_container {
+    justify-content: center;
+    align-items: center;
+  display: flex;
+}
+
+.hero_img_card {
+    margin: 10px;
+    height: 500px;
+    width: 500px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-image: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
+    background: #ee0979;
+    background: -webkit-linear-gradient(to right, #9114ff, #ff512f);
+    background: linear-gradient(to right, #8f0eff, #ff512f);
+}
+
+@media screen and (max-width: 1100px) {
+    
+  .hero_container {
+    grid-template-columns: 1fr;
+  }
+    .hero_heading {
+        font-size: 60px;
+    }
+    .hero_words {
+    font-size: 20px;
+    }
+    .hero_scroll {
+        font-size: 40px;
+    }
+    .hero_img_card {
+        height: 425px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero {
+        padding: 0px;
+    }
+    .hero_img_card {
+        height: 250px;
+    }
+}
