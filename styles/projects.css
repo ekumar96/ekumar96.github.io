@@ -42,7 +42,29 @@
   .projects_wrapper > * {
     scroll-snap-align: center;
   }
-
+  
+  .scroll_fade {
+    position: absolute;
+    z-index: 500;
+    height: 800px;
+    width: 50px;
+    top: 150px;
+  }
+  
+  .projects_wrapper .scroll_fade:nth-child(1) {
+    right: 0px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)); 
+  }
+  
+  .projects_wrapper .scroll_fade:nth-child(2) {
+    left: 0px;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)); 
+  }
+  
+  .scroll_spacer {
+    width: 40px;
+    height: 400px;
+  }
   
   .projects_card {
     margin: 10px;
