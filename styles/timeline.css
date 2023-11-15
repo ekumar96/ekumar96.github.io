@@ -1,0 +1,126 @@
+/*Timeline CSS*/
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 50px auto 40px auto;
+    padding: 100px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .timeline h1 {
+    padding: 30px;
+    font-size: 60px;
+  }
+  
+  .time_line {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 70%;
+    background: white;
+    top: 250px;
+    left: 50%;
+    margin-left: -3px;
+    z-index: 0;
+    border-radius: 3px;
+    transition: opacity 1s;
+  }
+  
+  .accordion {
+    margin: 30px;
+    width: 100%;
+    padding: 40px 70px;
+  }
+  
+  .exp_box{
+    list-style: none;
+    margin: 20px;
+    width: 43%;
+    padding: 15px;
+    border-radius: 20px;
+    background: white;
+    color: black;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position:relative;
+    transition: translate 0.5s ease-in-out, opacity 1s ease-in-out, filter 1s ease-in-out, transform 1s ease-in-out;;
+  }
+  
+  .right_exp_box {
+    margin-right: 20px;
+    margin-left: auto;
+  }
+  
+  .exp_box:hover{
+    translate: 0 -15px;
+  }
+  
+  .box_header {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 15px;
+  }
+  
+  .box_header h1 {
+    display: flex;
+    font-size: 40px;
+    font-weight: 500;
+    padding: 10px;
+  }
+  
+  .box_header small {
+    font-size: 17px;
+    color: rgb(88, 88, 88);
+    min-width: 125px;
+    padding: 10px;
+    margin-left: auto;
+    text-align: right;
+  }
+  
+  .exp_box h3 {
+    cursor: pointer;
+    padding: 10px;
+    font-size: 23px;
+  }
+  
+  .exp_img {
+    position: absolute;
+    object-fit: cover;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    right: -17.4%;
+    top: 32px;
+    z-index: 100;
+    cursor: pointer;
+  }
+  .right_exp_box .exp_img {
+    left: -17.4%;
+  }
+  
+  
+  .logo_arrow {
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 40px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid white;
+    right: -15px;
+  }
+  
+  .right_exp_box .logo_arrow {
+    border-left: 0;
+    border-right: 15px solid white;
+    left: -15px;
+  }
+  

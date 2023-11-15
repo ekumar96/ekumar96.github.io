@@ -12,7 +12,6 @@ const mobileMenu = () => {
 
 menu.addEventListener('click', mobileMenu);
 
-
 // show active menu when scrolling
 const highlightMenu = () => {
     const elem = document.querySelector('.highlight')
@@ -36,7 +35,6 @@ const highlightMenu = () => {
         projectsMenu.classList.remove('highlight')
         return
     }
-
 
     if ((elem && window.innerWidth < 960 && scrollPos < 600) || elem) {
         elem.classList.remove('highlight')
