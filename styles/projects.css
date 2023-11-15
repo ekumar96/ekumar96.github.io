@@ -160,7 +160,46 @@
     cursor: pointer;
   }
   
+  .skills_container {
+    display: flex;
+    flex-direction: row;
+    margin: -8px 70px;
+    padding: 0 20px;
+    border-radius: 20px;
+    
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+}
+  
+  .skills_container h2{
+    font-size: 40px;
+    text-align: center;
+  }
+  
+  .skills_card {
+    display: grid;
+    grid-template-columns: 1.4fr 2fr;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    margin: 30px 30px;
+  }
+  .skills_card h3{
+    font-size: 25px;
+    padding: 10px;
+  }
+  .skills_card p{
+    font-size: 20px;
+    padding: 10px 50px;
+  }
+  
   @media screen and (max-width: 1300px) {
+    .skills_container {
+      flex-direction: column;
+      padding-top: 20px; 
+    }
     .background {
         height: 350vh;
     }
