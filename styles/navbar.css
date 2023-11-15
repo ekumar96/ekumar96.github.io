@@ -64,6 +64,10 @@ a:visited, a:hover, a:active { text-decoration: none; color:white }
     align-items: center;
 }
 
+.highlight {
+    border-bottom: 4px solid rgb(10, 150, 100);
+}
+
 /* Button Styles*/
 .navbar_btn {
   display: flex;

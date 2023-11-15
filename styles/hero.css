@@ -59,10 +59,6 @@
   -moz-text-fill-color: transparent;
 }
 
-.highlight {
-    border-bottom: 4px solid rgb(10, 150, 100);
-}
-
 .hero_img_container {
     justify-content: center;
     align-items: center;
