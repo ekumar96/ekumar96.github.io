@@ -124,3 +124,11 @@
     left: -15px;
   }
   
+  .exp_box .content {
+    cursor: pointer;
+    color: #555;
+    padding: 0 10px;
+    line-height: 26px;
+  }
+  
+  
