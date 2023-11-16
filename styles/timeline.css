@@ -164,3 +164,25 @@
     content:'See Less \2B61';
   }
   
+  @media screen and (max-width: 1040px) {
+    .timeline {
+      margin: 50px auto;
+    }
+    .time_line{
+      left: 125px;
+    }
+    .exp_box {
+      margin-right: 5%;
+      margin-left: 120px;
+      width: 79%;
+    }
+    .exp_img {
+      left: -92px;
+    }
+    .exp_box .logo_arrow {
+      border-left: 0;
+      border-right: 15px solid white;
+      left: -15px;
+    }
+  }
+  
