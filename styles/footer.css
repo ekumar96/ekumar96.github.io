@@ -20,6 +20,11 @@
   .social_icon_link {
     color: #fff;
     font-size: 24px;
+    transition: all 0.3s ease;
+  }
+
+  .social_icon_link:hover {
+    color: gray;
   }
   
   
