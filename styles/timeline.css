@@ -196,6 +196,16 @@
     position: relative;
   }
   
+  .bio img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    z-index: -10;
+    filter: blur(5px);
+  }
+  
   .bio_text {
     width: 80%;
     padding: 30px 40px;
