@@ -104,23 +104,3 @@ body::-webkit-scrollbar {
   width: 100%;
   visibility: visible;
 }
-
-.hidden {
-  opacity: 0;
-  filter: blur(0px);
-  transform: translateY(10%);
-  transition: opacity 1s ease-in-out, filter 1s ease-in-out, transform 1s ease-in-out;
-  transition-delay: 300ms;
-}
-
-@media(prefers-reduced-motion) {
-  .hidden {
-    transition: none;
-  }
-}
-
-.show {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateY(0%);
-}
