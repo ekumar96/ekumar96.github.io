@@ -19,6 +19,25 @@ const highlightMenu = () => {
     const aboutMenu = document.querySelector('#about-page')
     const projectsMenu = document.querySelector('#projects-page')
     let scrollPos = window.scrollY
+<<<<<<< HEAD
+=======
+
+    // Adds 'highlight' class to menu items - class should only work if not in mobile
+    if(window.innerWidth > 960 && scrollPos < 600) { // 600 is when we should be on home highlighted
+        homeMenu.classList.add('highlight')
+        projectsMenu.classList.remove('highlight')
+        return
+    } else if (window.innerWidth > 960 && scrollPos < 1400) {
+        homeMenu.classList.remove('highlight')
+        aboutMenu.classList.remove('highlight')
+        projectsMenu.classList.add('highlight')
+        return
+    } else if (window.innerWidth > 960 && scrollPos < 3545) {
+        aboutMenu.classList.add('highlight')
+        projectsMenu.classList.remove('highlight')
+        return
+    }
+>>>>>>> WIP_local
 
     // Adds 'highlight' class to menu items - class should only work if not in mobile
     if(window.innerWidth > 960 && scrollPos < 600) { // 600 is when we should be on home highlighted
@@ -64,3 +83,20 @@ if (history.scrollRestoration) {
         window.scrollTo(0, 0);
     }
 }
+
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        console.log(entry)
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+});
+
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el) => observer.observe(el));
+
