@@ -105,6 +105,26 @@
       #fff800 100%
     );
   }
+
+  #card2 {
+    transition-delay: 400ms;
+    z-index: -10;
+  }
+  
+  #card3 {
+    transition-delay: 600ms;
+    z-index: -11;
+  }
+  
+  #card4 {
+    transition-delay: 800ms;
+    z-index: -12;
+  }
+  
+  #card5 {
+    transition-delay: 1000ms;
+    z-index: -13;
+  }
   
   .projects_card h2 {
     font-size: 30px;

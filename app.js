@@ -19,25 +19,6 @@ const highlightMenu = () => {
     const aboutMenu = document.querySelector('#about-page')
     const projectsMenu = document.querySelector('#projects-page')
     let scrollPos = window.scrollY
-<<<<<<< HEAD
-=======
-
-    // Adds 'highlight' class to menu items - class should only work if not in mobile
-    if(window.innerWidth > 960 && scrollPos < 600) { // 600 is when we should be on home highlighted
-        homeMenu.classList.add('highlight')
-        projectsMenu.classList.remove('highlight')
-        return
-    } else if (window.innerWidth > 960 && scrollPos < 1400) {
-        homeMenu.classList.remove('highlight')
-        aboutMenu.classList.remove('highlight')
-        projectsMenu.classList.add('highlight')
-        return
-    } else if (window.innerWidth > 960 && scrollPos < 3545) {
-        aboutMenu.classList.add('highlight')
-        projectsMenu.classList.remove('highlight')
-        return
-    }
->>>>>>> WIP_local
 
     // Adds 'highlight' class to menu items - class should only work if not in mobile
     if(window.innerWidth > 960 && scrollPos < 600) { // 600 is when we should be on home highlighted
@@ -76,6 +57,7 @@ const hideMobileMenu = () => {
 menuLinks.addEventListener('click', hideMobileMenu)
 navLogo.addEventListener('click', hideMobileMenu)
 
+// Restore scroll to top of page on refresh
 if (history.scrollRestoration) {
     history.scrollRestoration = 'manual';
 } else {
@@ -84,7 +66,7 @@ if (history.scrollRestoration) {
     }
 }
 
-
+// Show and hide elements when scrolling
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         console.log(entry)
@@ -100,3 +82,16 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
 
+const observer_left = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        console.log(entry)
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show-left');
+        } else {
+            entry.target.classList.remove('show-left');
+        }
+    });
+});
+
+const hiddenLeftElements = document.querySelectorAll('.hidden-left');
+hiddenLeftElements.forEach((el) => observer_left.observe(el));
