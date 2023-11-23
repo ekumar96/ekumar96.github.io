@@ -66,6 +66,53 @@ if (history.scrollRestoration) {
     }
 }
 
+// Timeline line animation
+const line = document.querySelector('#line_id')
+let scrollDown = true;
+let expBoxHeightDeltas = {
+    '#first_exp_box': 108,
+    '#second_exp_box': 160,
+    '#third_exp_box': 186,
+    '#fourth_exp_box': 196,
+    '#fifth_exp_box': 160,
+};
+
+const animate_line = () => {
+    let scrollPos = window.scrollY
+    let aboveLine = 1300
+    let belowLine = 3550
+    let startAnimationTop = 1600
+    let startAnimationBottom = 3300
+
+    for (const key of Object.keys(expBoxHeightDeltas)) { 
+        if(document.querySelector(key).checked){
+            let heightDelta = expBoxHeightDeltas[key]
+            belowLine += heightDelta
+            startAnimationBottom += heightDelta
+        }
+     };
+
+
+    if (scrollPos < aboveLine || scrollPos > belowLine) {
+        line.classList.remove('is-inView')
+        line.classList.remove('is-inView-up')
+        if (scrollPos < aboveLine) {
+            scrollDown = true
+        } else if (scrollPos > belowLine) {
+            scrollDown = false
+        }
+    }
+    else if (scrollPos > startAnimationTop && scrollPos < startAnimationBottom){
+        if(scrollDown){
+            line.classList.add('is-inView')
+        } else {
+            line.classList.add('is-inView-up')
+        }
+    } 
+}
+
+window.addEventListener('scroll', animate_line);
+
 // Show and hide elements when scrolling
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
