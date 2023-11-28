@@ -169,6 +169,10 @@
     overflow: hidden;
     transition: max-height 0.5s, padding 0.5s;
   }
+
+  .exp_box .content span {
+    text-decoration: underline;
+  }
   
   .see_more {
     cursor: pointer;
@@ -251,7 +255,11 @@
     font-size: 2.5vw;
     z-index: 100;
 <<<<<<< HEAD
+<<<<<<< HEAD
   }
+=======
+  }
+>>>>>>> color_branch
 =======
   }
 >>>>>>> color_branch
