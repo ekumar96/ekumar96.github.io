@@ -173,6 +173,19 @@
   .exp_box .content span {
     text-decoration: underline;
   }
+
+  .exp_box .content li {
+    list-style-position: inside;
+  }
+
+  .exp_box .content a:link, .exp_box .content a:visited,
+  .exp_box .content a:hover, .exp_box .content a:active {
+    color: inherit;
+  }
+
+  .exp_box .content a {
+    text-decoration: underline;
+  }
   
   .see_more {
     cursor: pointer;
@@ -254,4 +267,8 @@
     background-color: rgb(0, 0, 0, 0.75);
     font-size: 2.5vw;
     z-index: 100;
+<<<<<<< HEAD
   }
+=======
+  }
+>>>>>>> color_branch
