@@ -28,6 +28,22 @@
     scroll-behavior: smooth;
 }
 
+:root {
+  
+  --dark-hue:#04568b;
+  --medium-hue: #16b7e1;
+  --light-hue: #54cff0;
+  /*
+  --dark-hue:#0f5959;
+  --medium-hue: #28977e;
+  --light-hue: #45ddb6;
+  */
+  --dull-white: white;
+  --font-gray: rgb(169, 169, 169);
+  --dark-black: rgb(37, 37, 37);
+  --light-black: rgb(103, 103, 103);
+}
+
 a {
     text-decoration: none;
 }
@@ -90,7 +106,8 @@ body::-webkit-scrollbar {
   left: 0;
   width: 0;
   height: 100%;
-  background: black;
+  /*background: black;*/
+  background-image: linear-gradient(to right, var(--dark-hue) 0%, var(--medium-hue) 100%);
   border-radius: 50vh;
   transition: all 0.35s;
   visibility: hidden;

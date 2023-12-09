@@ -19,8 +19,8 @@
 .conclusion_content h1 {
     font-size: 2rem;
     text-align: center;
-    background: #fe093b6f;
-    background: linear-gradient(to top, #ff087b 0%, #ed1a52 100%);
+    background: var(--medium-hue);
+    background: linear-gradient(to top, var(--font-gray) 0%, var(--font-gray) 100%);
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -32,10 +32,9 @@
 .conclusion_content h2 {
     font-size: 4rem;
     text-align: center;
-    background: #ff8177;
-    background: #ee0979;
-    background: -webkit-linear-gradient(to right, #9114ff, #da22ff);
-    background: linear-gradient(to right, #8f0eff, #da22ff);
+    background: var(--medium-hue);
+    background: -webkit-linear-gradient(to right, var(--medium-hue), var(--light-hue));
+    background: linear-gradient(to right, var(--medium-hue), var(--light-hue));
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -48,7 +47,7 @@
     display: flex;
   }
 
-  .conclusion_img_card {
+  .conclusion_img {
     margin: 10px;
     height: 500px;
     width: 500px;
@@ -56,10 +55,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    object-fit: cover;
 
     align-items: center;
     color: white;
-    background-image: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
+    background-image: linear-gradient(to right, var(--dark-hue), var(--medium-hue), var(--light-hue));
   }
 
 .conclusion_btn {

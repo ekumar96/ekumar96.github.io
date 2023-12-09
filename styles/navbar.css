@@ -65,7 +65,11 @@ a:visited, a:hover, a:active { text-decoration: none; color:white }
 }
 
 .highlight {
+<<<<<<< HEAD
     border-bottom: 4px solid rgb(10, 150, 100);
+=======
+    border-bottom: 4px solid var(--medium-hue);
+>>>>>>> WIP_local
 }
 
 /* Button Styles*/

@@ -16,47 +16,34 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     max-width: 1200px;
     margin: 0 auto;
     height: 90%;
-    text-align: center;
     padding: 30px;
 }
 
 .hero_heading {
     font-size: 100px;
-    margin-bottom: 24px;
     color: white;
-
-}
-
-.hero_heading span {
-    background: #ee0979;
-    background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);
-    background: linear-gradient(to right, #ff6a00, #ee0979);
-    background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    
 }
 
 .hero_words p {
   font-size: 30px;
-  color: rgb(219, 216, 216)
-}
-
-.hero_scroll {
-  font-size: 60px;
-  background: #da22ff;
-  background: #ee0979;
-  background: -webkit-linear-gradient(to right, #9114ff, #da22ff);
-  background: linear-gradient(to right, #8f0eff, #da22ff);
+  margin: 15px;
+  color: white;
+  background: var(--medium-hue);
+  background: -webkit-linear-gradient(to right, var(--medium-hue), var(--light-hue));
+  background: linear-gradient(to right, var(--medium-hue), var(--light-hue));
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
+}
+
+.hero_scroll {
+  font-size: 50px;
+  color: var(--font-gray);
 }
 
 .hero_img_container {
@@ -65,19 +52,12 @@
   display: flex;
 }
 
-.hero_img_card {
-    margin: 10px;
-    height: 500px;
-    width: 500px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background-image: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
-    background: #ee0979;
-    background: -webkit-linear-gradient(to right, #9114ff, #ff512f);
-    background: linear-gradient(to right, #8f0eff, #ff512f);
+.hero_img {
+  position: absolute;
+  object-fit: cover;
+  height: 500px;
+  width: 500px;
+  border-radius: 20px;
 }
 
 @media screen and (max-width: 1100px) {
@@ -94,7 +74,7 @@
     .hero_scroll {
         font-size: 40px;
     }
-    .hero_img_card {
+    .hero_img {
         height: 425px;
     }
 }
@@ -103,7 +83,7 @@
     .hero {
         padding: 0px;
     }
-    .hero_img_card {
+    .hero_img {
         height: 250px;
     }
 }
