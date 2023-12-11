@@ -30,16 +30,18 @@
 
 :root {
   
-  --dark-hue:#04568b;
-  --medium-hue: #16b7e1;
-  --light-hue: #54cff0;
+  --dark-hue:rgb(42, 81, 81);
+  --medium-hue: rgb(61, 129, 129);
+  --light-hue: rgb(29, 189, 168);
   /*
   --dark-hue:#0f5959;
   --medium-hue: #28977e;
   --light-hue: #45ddb6;
   */
   --dull-white: white;
-  --font-gray: rgb(169, 169, 169);
+  --font-gray: rgb(175, 175, 175);
+  --light-gray: rgb(61, 61, 61);
+  --dark-gray: rgb(31, 31, 31);
   --dark-black: rgb(37, 37, 37);
   --light-black: rgb(103, 103, 103);
 }
@@ -69,6 +71,7 @@ body::-webkit-scrollbar {
 
 .main_btn {
   font-size: 1.8rem;
+  background: linear-gradient(to bottom, var(--light-gray), var(--dark-gray));
   background: white;
   padding: 20px 60px;
   border: 4px solid transparent;
@@ -95,6 +98,7 @@ body::-webkit-scrollbar {
 .btn_text {
   position: relative;
   z-index: 100;
+  color: white;
   color: black;
   text-decoration: none;
 }
@@ -107,7 +111,7 @@ body::-webkit-scrollbar {
   width: 0;
   height: 100%;
   /*background: black;*/
-  background-image: linear-gradient(to right, var(--dark-hue) 0%, var(--medium-hue) 100%);
+  background-image: linear-gradient(to top, var(--dark-gray) 0%, var(--light-gray) 100%);
   border-radius: 50vh;
   transition: all 0.35s;
   visibility: hidden;

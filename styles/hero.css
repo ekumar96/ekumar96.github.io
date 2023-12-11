@@ -31,6 +31,19 @@
 .hero_words p {
   font-size: 30px;
   margin: 15px;
+  color: var(--font-gray);
+  /*
+  background: var(--medium-hue);
+  background: -webkit-linear-gradient(to right, var(--medium-hue), var(--light-hue));
+  background: linear-gradient(to right, var(--medium-hue), var(--light-hue));
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;*/
+}
+
+.hero_scroll {
+  font-size: 50px;
   color: white;
   background: var(--medium-hue);
   background: -webkit-linear-gradient(to right, var(--medium-hue), var(--light-hue));
@@ -39,11 +52,6 @@
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
-}
-
-.hero_scroll {
-  font-size: 50px;
-  color: var(--font-gray);
 }
 
 .hero_img_container {
