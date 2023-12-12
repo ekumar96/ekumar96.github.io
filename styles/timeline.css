@@ -84,16 +84,16 @@
     transition: translate 0.5s ease-in-out, opacity 1s ease-in-out, filter 1s ease-in-out, transform 1s ease-in-out;
     color: white;
     /*border-top: solid 2px rgba(255, 255, 255, 0.55);*/
-    background: var(--dull-white); /* fallback for old browsers */
+    background: var(--dark-hue); /* fallback for old browsers */
     background: -webkit-linear-gradient(
       180deg,
-      var(--light-gray) 0%,
-      var(--dark-gray) 70%
+      var(--medium-hue) 30%,
+      var(--dark-hue) 100%
     );  /* Chrome 10-25, Safari 5.1-6 */ 
     background-image: linear-gradient(
       180deg,
-      var(--light-gray) 0%,
-      var(--dark-gray) 70%
+      var(--medium-hue) 30%,
+      var(--dark-hue) 100%
     );
   }
   
@@ -123,7 +123,7 @@
   
   .box_header small {
     font-size: 17px;
-    color: var(--font-gray);
+    color: var(--font-gray-2);
     min-width: 125px;
     padding: 10px;
     margin-left: auto;
@@ -156,19 +156,17 @@
     height: 0;
     width: 0;
     position: absolute;
-    top: 40px;
+    top: 30px;
     z-index: 1;
-    border-image: linear-gradient(to bottom, red, orange) 1;
-    border: 0;
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
-    border-left: 15px solid rgb(45, 45, 45);
+    border-left: 15px solid var(--medium-hue);
     right: -15px;
   }
   
   .right_exp_box .logo_arrow {
     border-left: 0;
-    border-right: 15px solid rgb(45, 45, 45);
+    border-right: 15px solid var(--medium-hue);
     left: -15px;
   }
   

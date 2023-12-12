@@ -38,9 +38,10 @@
   --medium-hue: #28977e;
   --light-hue: #45ddb6;
   */
-  --dull-white: white;
+  --font-gray-2: rgba(256, 256, 256, 0.7);
   --font-gray: rgb(175, 175, 175);
-  --light-gray: rgb(61, 61, 61);
+  --light-gray: rgb(124, 124, 124);
+  --medium-gray: rgb(61, 61, 61);
   --dark-gray: rgb(31, 31, 31);
   --dark-black: rgb(37, 37, 37);
   --light-black: rgb(103, 103, 103);
@@ -110,8 +111,8 @@ body::-webkit-scrollbar {
   left: 0;
   width: 0;
   height: 100%;
-  /*background: black;*/
-  background-image: linear-gradient(to top, var(--dark-gray) 0%, var(--light-gray) 100%);
+  background: black;
+  /*background-image: linear-gradient(to top, var(--dark-gray) 0%, var(--light-gray) 100%);*/
   border-radius: 50vh;
   transition: all 0.35s;
   visibility: hidden;

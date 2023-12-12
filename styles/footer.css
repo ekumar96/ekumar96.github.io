@@ -1,7 +1,7 @@
 /* Footer CSS */
 .footer_container {
     background-color: #131313;
-    padding: 2rem 8rem 1rem 8rem;
+    padding: 2rem 8rem 2.5rem 8rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -15,6 +15,11 @@
     cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .footer_logo a:hover{
+    color: var(--medium-hue)
   }
   
   .social_icon_link {
@@ -24,7 +29,7 @@
   }
 
   .social_icon_link:hover {
-    color: gray;
+    color: var(--medium-hue);
   }
   
   

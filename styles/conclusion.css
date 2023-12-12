@@ -32,13 +32,7 @@
 .conclusion_content h2 {
     font-size: 4rem;
     text-align: center;
-    background: var(--medium-hue);
-    background: -webkit-linear-gradient(to right, var(--medium-hue), var(--light-hue));
-    background: linear-gradient(to right, var(--medium-hue), var(--light-hue));
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
+    color: white;
 }
 
   .conclusion_img_container {
