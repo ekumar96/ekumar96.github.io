@@ -243,9 +243,12 @@ input[type="checkbox"]{
   .exp_img {
     left: -92px;
   }
+  .right_exp_box .exp_img {
+    left: -92px;
+  }
   .exp_box .logo_arrow {
     border-left: 0;
-    border-right: 15px solid white;
+    border-right: 15px solid var(--medium-hue);
     left: -15px;
   }
 }

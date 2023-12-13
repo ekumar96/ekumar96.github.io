@@ -1,6 +1,5 @@
 /* Hero Section */
 .hero {
-  /*background-color: blue;/*linear-gradient(to-right, #161616, #000000);*/
   padding: 80px;
   height: 90% 
 }
@@ -47,6 +46,7 @@
 }
 
 .hero_img_container {
+  height: 500px;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -65,24 +65,28 @@
     grid-template-columns: 1fr;
   }
   .hero_heading {
-      font-size: 60px;
+    font-size: 60px;
   }
   .hero_words {
-  font-size: 20px;
+    font-size: 20px;
   }
   .hero_scroll {
-      font-size: 40px;
+    font-size: 40px;
+  }
+  .hero_img_container {
+    height: 425px;
   }
   .hero_img {
-      height: 425px;
+    height: 425px;
+    width: 425px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .hero {
-      padding: 0px;
+    padding: 0px;
   }
   .hero_img {
-      height: 250px;
+    height: 250px;
   }
 }
