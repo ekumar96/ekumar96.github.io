@@ -203,12 +203,12 @@
     padding-top: 20px; 
   }
   .background {
-      height: 350vh;
+    height: 350vh;
   }
 }
 
 @media screen and (max-width: 768px) {
   .background {
-      height: 450vh;
+    height: 450vh;
   }
 }

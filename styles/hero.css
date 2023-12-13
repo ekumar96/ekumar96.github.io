@@ -1,8 +1,8 @@
 /* Hero Section */
 .hero {
-    /*background-color: blue;/*linear-gradient(to-right, #161616, #000000);*/
-    padding: 80px;
-    height: 90% 
+  /*background-color: blue;/*linear-gradient(to-right, #161616, #000000);*/
+  padding: 80px;
+  height: 90% 
 }
 
 .hero_container {
@@ -12,34 +12,26 @@
 }
 
 .hero_words {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 90%;
-    padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 90%;
+  padding: 30px;
 }
 
 .hero_heading {
-    font-size: 100px;
-    color: white;
+  font-size: 100px;
+  color: white;
 }
 
 .hero_words p {
   font-size: 30px;
   margin: 15px;
   color: var(--font-gray);
-  /*
-  background: var(--medium-hue);
-  background: -webkit-linear-gradient(to right, var(--medium-hue), var(--light-hue));
-  background: linear-gradient(to right, var(--medium-hue), var(--light-hue));
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;*/
 }
 
 .hero_scroll {
@@ -55,8 +47,8 @@
 }
 
 .hero_img_container {
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
   display: flex;
 }
 
@@ -69,29 +61,28 @@
 }
 
 @media screen and (max-width: 1100px) {
-    
   .hero_container {
     grid-template-columns: 1fr;
   }
-    .hero_heading {
-        font-size: 60px;
-    }
-    .hero_words {
-    font-size: 20px;
-    }
-    .hero_scroll {
-        font-size: 40px;
-    }
-    .hero_img {
-        height: 425px;
-    }
+  .hero_heading {
+      font-size: 60px;
+  }
+  .hero_words {
+  font-size: 20px;
+  }
+  .hero_scroll {
+      font-size: 40px;
+  }
+  .hero_img {
+      height: 425px;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .hero {
-        padding: 0px;
-    }
-    .hero_img {
-        height: 250px;
-    }
+  .hero {
+      padding: 0px;
+  }
+  .hero_img {
+      height: 250px;
+  }
 }

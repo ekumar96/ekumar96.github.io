@@ -1,46 +1,45 @@
 /* Footer CSS */
 .footer_container {
-    background-color: #131313;
-    padding: 2rem 8rem 2.5rem 8rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .footer_logo a {
-    color: #fff;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 2rem;
-    transition: all 0.3s ease;
-  }
+  background-color: #131313;
+  padding: 2rem 8rem 2.5rem 8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .footer_logo a:hover{
-    color: var(--medium-hue)
-  }
-  
-  .social_icon_link {
-    color: #fff;
-    font-size: 24px;
-    transition: all 0.3s ease;
-  }
+.footer_logo a {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
 
-  .social_icon_link:hover {
-    color: var(--medium-hue);
-  }
-  
-  
-  .social_icons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100px;
-  }
-  
-  .website_rights {
-    color: #fff;
-  }
-  
+.footer_logo a:hover{
+  color: var(--medium-hue)
+}
+
+.social_icon_link {
+  color: #fff;
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+.social_icon_link:hover {
+  color: var(--medium-hue);
+}
+
+
+.social_icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+}
+
+.website_rights {
+  color: #fff;
+}
