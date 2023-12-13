@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  max-width: 1200px;
+  max-width: 700px;
   margin: 0 auto;
   height: 90%;
   padding: 30px;
@@ -25,15 +25,18 @@
 .hero_heading {
   font-size: 100px;
   color: white;
+  max-width: 584;
 }
 
 .hero_words p {
-  font-size: 30px;
+  font-family: myFont-secondary, Arial;
+  font-size: 25px;
   margin: 15px;
   color: var(--font-gray);
 }
 
 .hero_scroll {
+  font-family: myFont-Italic, Arial;
   font-size: 50px;
   color: white;
   background: var(--medium-hue);
@@ -88,5 +91,11 @@
   }
   .hero_img {
     height: 250px;
+  }
+}
+
+@media screen and (min-height: 1000px) {
+  .hero {
+    padding: 120px 80px;
   }
 }

@@ -13,8 +13,22 @@
 }
 
 @font-face {
-  font-family: Poppins;
-  src:url(../fonts/Poppins/Poppins-Regular.ttf)
+  font-family: myFont-Light;
+  src:url(../fonts/apple_garamond/AppleGaramond-Light.ttf)
+  /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-BookCond.otf)*/
+  /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-LtCond.otf)*/
+}
+
+@font-face {
+  font-family: myFont-LightItalic;
+  src:url(../fonts/apple_garamond/AppleGaramond-LightItalic.ttf)
+  /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-BookCond.otf)*/
+  /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-LtCond.otf)*/
+}
+
+@font-face {
+  font-family: myFont-secondary;
+  src:url(../fonts/OptimaLT/Optima-LT-Regular.ttf)
   /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-BookCond-Italic.otf) */
   /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-LtCond-Italic.otf)*/
 }

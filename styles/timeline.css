@@ -122,9 +122,10 @@
 }
 
 .box_header small {
-  font-size: 17px;
+  font-size: 14px;
+  font-family: myFont-secondary;
   color: var(--font-gray-2);
-  min-width: 125px;
+  min-width: 130px;
   padding: 10px;
   margin-left: auto;
   text-align: right;
@@ -132,8 +133,24 @@
 
 .exp_box h3 {
   cursor: pointer;
+  font-family: myFont-secondary;
+  color: var(--font-gray-2);
   padding: 10px;
-  font-size: 23px;
+  font-size: 20px;
+}
+
+.see_more {
+  cursor: pointer;
+  font-family: myFont-secondary;
+  color: var(--font-gray-2);
+  text-align: right;
+  padding-right: 20px;
+}
+
+.see_more::after {
+  content: 'See More \2B63';
+  margin-right: 10px;
+  margin-left: auto;
 }
 
 .exp_img {
@@ -181,11 +198,19 @@
   transition: max-height 0.5s, padding 0.5s;
 }
 
+.exp_box .content p {
+  font-size: 15px;
+  font-family: myFont-secondary;
+}
+
 .exp_box .content span {
+  font-family: myFont-secondary;
   text-decoration: underline;
 }
 
 .exp_box .content li {
+  font-size: 14px;
+  font-family: myFont-secondary;
   list-style-position: inside;
 }
 
@@ -195,19 +220,9 @@
 }
 
 .exp_box .content a {
+  font-family: myFont-LightItalic;
+  font-size: 17px;
   text-decoration: underline;
-}
-
-.see_more {
-  cursor: pointer;
-  text-align: right;
-  padding-right: 20px;
-}
-
-.see_more::after {
-  content:'See More \2B63';
-  margin-right: 10px;
-  margin-left:auto;
 }
 
 .resume_btn {
@@ -274,11 +289,12 @@ input[type="checkbox"]{
 }
 
 .bio_text {
+  font-family: myFont-secondary;
+  font-size: 25px;
   width: 80%;
   padding: 30px 40px;
   border-radius: 20px;
   border: 4px solid white;
   background-color: rgb(0, 0, 0, 0.75);
-  font-size: 2.5vw;
   z-index: 100;
 }

@@ -40,7 +40,6 @@
 
 .navbar_item {
   height: 80px;
-
 }
 
 .navbar_links {
@@ -52,6 +51,7 @@
   text-decoration: none;
   justify-content: center;
   align-items: center;
+  font-family: myFont-Light;
 }
 
 .highlight {

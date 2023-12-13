@@ -110,17 +110,20 @@
 }
 
 .projects_card h3 {
+  font-family: myFont-secondary;
   margin: 10px 0px;
-  font-size: 20px;
+  font-size: 16px;
   color: var(--font-gray-2)
 }
 
 .projects_card p {
+  font-family: myFont-secondary;
   text-align: left;
   margin-top: 24px;
-  font-size: 15px;
+  font-size: 12px;
 }
 .projects_card p span{
+  font-family: myFont-secondary;
   text-decoration: underline;
 }
 
@@ -128,6 +131,9 @@
   display: flex;
   justify-content: center;
   margin-top: 16px;
+}
+.projects_btn button {
+  font-family: myFont-LightItalic;
 }
 
 .projects_card button,
@@ -166,8 +172,7 @@
   margin: -4px 70px;
   padding: 0 20px;
   border-radius: 20px;
-  /*border-top: solid 2px rgba(255, 255, 255, 0.55);*/
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   color: white;
   /*background-image: linear-gradient(to right, var(--dark-gray) 0%, var(--medium-gray) 100%);*/
@@ -175,9 +180,10 @@
   background: black;
 }
 
-.skills_container h2{
+.skills_title{
   font-size: 40px;
   text-align: center;
+  padding: 30px 50px;
 }
 
 .skills_card {
@@ -187,20 +193,24 @@
   justify-content: center;
   align-items: left;
   margin: 30px 30px;
+  min-width: 850px;
 }
 .skills_card h3{
-  font-size: 25px;
+  font-size: 22px;
   padding: 10px;
+  font-family: myFont-secondary;
 }
 .skills_card p{
-  font-size: 20px;
-  padding: 10px 50px;
+  font-size: 14px;
+  padding: 10px 30px;
+  line-height: 26px;
+  font-family: myFont-secondary;
 }
 
 @media screen and (max-width: 1300px) {
   .skills_container {
     flex-direction: column;
-    padding-top: 20px; 
+    padding: 20px; 
   }
   .background {
     height: 350vh;
