@@ -12,6 +12,19 @@ const mobileMenu = () => {
 
 menu.addEventListener('click', mobileMenu);
 
+/// Close mobile Menu when click on menu item
+const hideMobileMenu = () => {
+    const menuBars = document.querySelector('.is-active') // menu list is down
+    if(window.innerWidth <= 980 && menuBars) {
+        menu.classList.remove('is-active');
+        menuLinks.classList.remove('is-active');
+        navBar.classList.remove('is-active');
+    }
+}
+
+menuLinks.addEventListener('click', hideMobileMenu)
+navLogo.addEventListener('click', hideMobileMenu)
+
 // show active menu when scrolling
 const highlightMenu = () => {
     const elem = document.querySelector('.highlight')
@@ -44,18 +57,6 @@ const highlightMenu = () => {
 
 window.addEventListener('scroll', highlightMenu);
 window.addEventListener('click', highlightMenu);
-
-/// Close mobile Menu when click on menu item
-const hideMobileMenu = () => {
-    const menuBars = document.querySelector('.is-active') // menu list is down
-    if(window.innerWidth <= 768 && menuBars) {
-        menu.classList.toggle('is-active')
-        menuLinks.classList.remove('is-active')
-    }
-}
-
-menuLinks.addEventListener('click', hideMobileMenu)
-navLogo.addEventListener('click', hideMobileMenu)
 
 // Restore scroll to top of page on refresh
 if (history.scrollRestoration) {
