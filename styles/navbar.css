@@ -194,3 +194,10 @@
     transform: translateY(-8px) rotate(-45deg);
   }
 }
+
+/* Responsive Design for Mobile Devices */
+@media screen and (max-width: 430px) {
+  #navbar_logo {
+    font-size: 2rem;
+  }
+}
