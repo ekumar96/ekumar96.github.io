@@ -222,3 +222,42 @@
     height: 450vh;
   }
 }
+
+@media screen and (max-width: 430px) {
+  .projects h1 {
+    font-size: 40px;
+  }
+  .scroll_fade {
+    height: 400px;
+  }
+  .projects_wrapper {
+    height: 345px;
+  }
+  .projects_card {
+    height: 300px;
+    width: 234px;
+    margin: 7px;
+  }
+  .scroll_spacer {
+    width: 20px;
+  }
+  .projects_card h2 {
+    font-size: 21px;
+  }
+  .projects_card h3 {
+    font-size: 12px;
+  }
+  .projects_card p {
+    font-size: 9px;
+    margin-top: 16px;
+  }
+  .projects_btn {
+    margin-top: 10px;
+  }
+  .projects_card button {
+    font-size: 12px;
+    
+  }
+
+
+}
