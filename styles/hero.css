@@ -85,12 +85,29 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 430px) {
   .hero {
     padding: 0px;
   }
   .hero_img {
     height: 250px;
+  }
+  .hero_heading {
+    padding: 0 30px;
+    font-size: 50px;
+  }
+  .hero_words p {
+    font-size: 17px;
+  }
+  .hero_scroll {
+    font-size: 25px;
+  }
+  .hero_img_container {
+    height: 200px;
+  }
+  .hero_img {
+    height: 200px;
+    width: 200px;
   }
 }
 
