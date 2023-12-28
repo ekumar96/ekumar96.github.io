@@ -336,15 +336,15 @@ input[type="checkbox"]{
   
   .box_header h1 {
     display: flex;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 500;
     padding: 10px;
   }
   
   .box_header small {
     font-size: 10px;
-    min-width: 60px;
-    padding: 10px;
+    min-width: 80px;
+    padding: 00px;
   }
 
   .exp_box {
@@ -357,13 +357,13 @@ input[type="checkbox"]{
     cursor: pointer;
     font-family: myFont-secondary;
     color: var(--font-gray-2);
-    padding: 10px;
-    font-size: 15px;
+    padding-top: 5px;
+    font-size: 13px;
   }
   
   .see_more {
     font-size: 10px;
-    padding-right: 20px;
+    padding-right: 0px;
   }
   
   .exp_img {
