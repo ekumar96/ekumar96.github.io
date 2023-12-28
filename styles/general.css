@@ -174,3 +174,9 @@ body::-webkit-scrollbar {
   filter: blur(0);
   translate: 0 0 !important;
 }
+
+@media screen and (max-width: 430px) {
+  .main_btn {
+    font-size: 1.2rem;
+  }
+}
