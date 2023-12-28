@@ -230,6 +230,7 @@
   }
   .scroll_fade {
     height: 400px;
+    width: 30px;
   }
   .projects_wrapper {
     height: 345px;
@@ -240,7 +241,7 @@
     margin: 7px;
   }
   .scroll_spacer {
-    width: 20px;
+    width: 0px;
   }
   .projects_card h2 {
     font-size: 21px;
@@ -260,7 +261,7 @@
   }
 
   .skills_container {
-    margin: -4px 50px;
+    margin: -4px 30px;
     padding: 0 13px;
     border: 3px solid white;
     min-width: 300px;
