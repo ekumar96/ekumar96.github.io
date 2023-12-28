@@ -398,4 +398,10 @@ input[type="checkbox"]{
   .exp_box .content a {
     font-size: 14px;
   }
+  
+  .bio_text {
+    font-size: 14px;
+    padding: 25px 30px;
+    border: 3px solid white;
+  }
 }
