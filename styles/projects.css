@@ -21,6 +21,7 @@
   display: grid;
   grid-auto-flow: column;
   overflow-x: auto;
+  overflow-y: hidden;
   overscroll-behavior-inline: contain;
   max-width: 1fr;
 
@@ -256,8 +257,31 @@
   }
   .projects_card button {
     font-size: 12px;
-    
   }
 
-
+  .skills_container {
+    margin: -4px 50px;
+    padding: 0 13px;
+    border: 3px solid white;
+    min-width: 300px;
+  }
+  
+  .skills_title{
+    font-size: 27px;
+    padding: 22px 37px;
+  }
+  
+  .skills_card {
+    grid-template-columns: 1.9fr 2fr;
+    margin: 22px 22px;
+  }
+  .skill_category {
+    font-size: 15px;
+    padding: 0px;
+  }
+  .skill_list {
+    font-size: 10px;
+    padding: 0px 0px 20px 22px;
+    line-height: 19px;
+  }
 }
