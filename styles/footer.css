@@ -44,3 +44,12 @@
   color: var(--font-gray);
   font-family: myFont-secondary;
 }
+
+@media screen and (max-width: 430px) {
+  .footer_container {
+    padding: 1rem;
+  }
+  .website_rights {
+    font-size: 10px;
+  }
+}
