@@ -87,22 +87,22 @@
 }
 
 #card2 {
-  transition-delay: 400ms;
+  transition: all 0.3s ease-in, translate 1s 400ms ease-in-out, opacity 1s 400ms ease-in-out;
   z-index: -10;
 }
 
 #card3 {
-  transition-delay: 600ms;
+  transition: all 0.3s ease-in, translate 1s 600ms ease-in-out, opacity 1s 600ms ease-in-out;
   z-index: -11;
 }
 
 #card4 {
-  transition-delay: 800ms;
+  transition: all 0.3s ease-in, translate 1s 800ms ease-in-out, opacity 1s 800ms ease-in-out;
   z-index: -12;
 }
 
 #card5 {
-  transition-delay: 1000ms;
+  transition: all 0.3s ease-in, translate 1s 1000ms ease-in-out, opacity 1s 1000ms ease-in-out;
   z-index: -13;
 }
 
@@ -163,7 +163,7 @@
 .projects_card:hover {
   transform: scale(1.075);
   /*translate: 0 -10px;*/
-  transition: 0.35s ease-in;
+  transition: 0.3s ease-in;
   cursor: pointer;
 }
 

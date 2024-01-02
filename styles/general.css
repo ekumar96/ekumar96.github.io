@@ -160,7 +160,6 @@ body::-webkit-scrollbar {
   filter: blur(0px);
   translate: -30% 0;
   transition: all 0.3s ease-in-out, opacity 1s ease-in-out, filter 1s ease-in-out, translate 1s ease-in-out;
-  transition-delay: 200ms;
 }
 
 @media(prefers-reduced-motion) {
