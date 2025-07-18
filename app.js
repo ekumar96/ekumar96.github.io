@@ -72,6 +72,7 @@ const line = document.querySelector('#line_id')
 let scrollDown = true;
 let expBoxHeightDeltas = {
     '#first_exp_box': 108,
+    '#aws_s3_exp_box': 160,
     '#second_exp_box': 160,
     '#third_exp_box': 186,
     '#fourth_exp_box': 196,
