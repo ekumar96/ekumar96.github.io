@@ -110,7 +110,7 @@ const expBoxHeightDeltas = {
 const animate_line = throttle(() => {
     const scrollPos = window.scrollY;
     let aboveLine = 1300;
-    let belowLine = 3550;
+    let belowLine = 3750;
     let startAnimationTop = 1600;
     let startAnimationBottom = 3300;
 
