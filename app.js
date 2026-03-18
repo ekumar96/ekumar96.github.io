@@ -109,10 +109,10 @@ const expBoxHeightDeltas = {
 
 const animate_line = throttle(() => {
     const scrollPos = window.scrollY;
-    let aboveLine = 1300;
-    let belowLine = 3750;
-    let startAnimationTop = 1600;
-    let startAnimationBottom = 3300;
+    let aboveLine = 300;
+    let belowLine = 2950;
+    let startAnimationTop = 600;
+    let startAnimationBottom = 2300;
 
     // Calculate height deltas for expanded boxes
     for (const key of Object.keys(expBoxHeightDeltas)) {
