@@ -48,7 +48,7 @@
 }
 
 .navbar_anchor {
-  font-family: "Nunito", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-secondary);
   font-weight: 500;
   letter-spacing: 0.01em;
   color: inherit;

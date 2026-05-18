@@ -26,13 +26,6 @@
   /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-LtCond.otf)*/
 }
 
-@font-face {
-  font-family: myFont-secondary;
-  src:url(../fonts/OptimaLT/Optima-LT-Regular.ttf)
-  /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-BookCond-Italic.otf) */
-  /*src:url(fonts/ITCGaramondStd/ITCGaramondStd-LtCond-Italic.otf)*/
-}
-
 * {
   box-sizing: border-box;
   margin:0;
@@ -53,6 +46,9 @@
   --dark-gray: rgb(31, 31, 31);
   --dark-black: rgb(37, 37, 37);
   --light-black: rgb(103, 103, 103);
+
+  /* Secondary body font — Nunito, loaded via Google Fonts in index.html. */
+  --font-secondary: "Nunito", system-ui, -apple-system, sans-serif;
 }
 
 a {

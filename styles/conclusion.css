@@ -18,7 +18,7 @@
 
 .conclusion_content h1 {
   font-size: 2rem;
-  font-family: myFont-secondary;
+  font-family: var(--font-secondary);
   text-align: center;
   background: var(--medium-hue);
   background: linear-gradient(to top, var(--font-gray) 0%, var(--font-gray) 100%);

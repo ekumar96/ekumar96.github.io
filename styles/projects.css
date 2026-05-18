@@ -111,20 +111,20 @@
 }
 
 .projects_card h3 {
-  font-family: myFont-secondary;
+  font-family: var(--font-secondary);
   margin: 10px 0px;
   font-size: 16px;
   color: var(--font-gray-2)
 }
 
 .projects_card p {
-  font-family: myFont-secondary;
+  font-family: var(--font-secondary);
   text-align: left;
   margin-top: 24px;
   font-size: 12px;
 }
 .projects_card p span{
-  font-family: myFont-secondary;
+  font-family: var(--font-secondary);
   text-decoration: underline;
 }
 
@@ -199,13 +199,13 @@
 .skill_category {
   font-size: 30px;
   padding: 10px;
-  font-family: myFont-secondary;
+  font-family: var(--font-secondary);
 }
 .skill_list {
   font-size: 18px;
   padding: 10px 30px 10px 70px;
   line-height: 26px;
-  font-family: myFont-secondary;
+  font-family: var(--font-secondary);
 }
 
 @media screen and (max-width: 1300px) {

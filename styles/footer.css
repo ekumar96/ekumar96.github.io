@@ -42,7 +42,7 @@
 
 .website_rights {
   color: var(--font-gray);
-  font-family: myFont-secondary;
+  font-family: var(--font-secondary);
 }
 
 @media screen and (max-width: 430px) {
