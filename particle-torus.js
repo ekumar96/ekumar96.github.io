@@ -150,7 +150,7 @@ function initTorus(mount) {
         }
         geometry.attributes.position.needsUpdate = true;
 
-        points.rotation.y = t * 0.2;
+        points.rotation.y = t * 0.1;
         points.rotation.x = Math.sin(t * 0.1) * 0.18;
         renderer.render(scene, camera);
     };
