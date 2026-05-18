@@ -22,43 +22,60 @@
         <link rel="stylesheet", href="styles/timeline.css">
         <link rel="stylesheet", href="styles/conclusion.css">
         <link rel="stylesheet", href="styles/footer.css">
+        <!-- Nunito: humanist sans with rounded terminals — pairs cleanly
+             with Apple Garamond. Used for navbar anchors + hero subtext. -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/2088839d83.js" crossorigin="anonymous"></script>
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://cdn.jsdelivr.net/npm/three@0.184.0/build/three.module.min.js"
+                }
+            }
+        </script>
+        <script type="module" src="particle-torus.js"></script>
     </head>
     <body>
         <div class="background"></div>
-        <!-- Navbar section -->
-        <nav class="navbar">
-            <div class="navbar_container">
+        <!-- Navbar -->
+        <nav class="navbar" id="navbar">
+            <div class="navbar_inner">
                 <a href="#" id="navbar_logo">Eshan Kumar</a>
 
-                <!-- Navbar Mobile Menu Toggle -->
-                <div class="navbar_toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+                <div class="navbar_anchors">
+                    <a href="#home" class="navbar_anchor" data-section="home">Home</a>
+                    <a href="#timeline" class="navbar_anchor" data-section="timeline">Experience</a>
+                    <a href="#projects" class="navbar_anchor" data-section="projects">Projects</a>
                 </div>
 
-                <!-- Navbar Links -->
-                <ul class="navbar_menu">
-                    <li class="navbar_item">
-                        <a href="#" class="navbar_links" id="home-page">Home</a>
-                    </li>
-                    <li class="navbar_item">
-                        <a href="#projects" class="navbar_links" id="projects-page">Projects</a>
-                    </li>
-                    <li class="navbar_item">
-                        <a href="#timeline" class="navbar_links" id="about-page">About</a>
-                    </li>
-                    <li class="navbar_btn">
-                        <a href="mailto:ekumar+website@gmail.com", target="_blank">
-                            <div class="main_btn contact_btn"><div class="btn_text">Contact Me</div></div>
+                <div class="navbar_right">
+                    <div class="navbar_socials">
+                        <a href="https://github.com/ekumar96" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="navbar_social">
+                            <i class="fa-brands fa-github"></i>
                         </a>
-                    </li>
-                </ul>
+                        <a href="https://www.linkedin.com/in/eshan-kumar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="navbar_social">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:ekumar+web@gmail.com" aria-label="Email" class="navbar_social">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                    <button type="button" class="navbar_toggle" id="mobile-menu" aria-label="Toggle menu" aria-expanded="false">
+                        <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="navbar_mobile" id="navbar-mobile" hidden>
+                <a href="#home" class="navbar_anchor" data-section="home">Home</a>
+                <a href="#timeline" class="navbar_anchor" data-section="timeline">Experience</a>
+                <a href="#projects" class="navbar_anchor" data-section="projects">Projects</a>
             </div>
         </nav>
 
-        <!-- Hero section -->
+        <!-- Hero -->
         <div class="hero hidden" id="home">
             <div class="hero_container">
                 <div class="hero_words">
@@ -66,13 +83,13 @@
                     <p>I'm a Software Engineer at the intersection of AI infrastructure and biological sciences.
                         From building production agentic AI systems at AWS to engineering ML tools used in live therapeutic pipelines —
                         I love solving hard problems that matter.</p>
-                    <h2 class="hero_scroll">&#8195 Scroll for more <span class="arrow">&#11107</span></h2>
                 </div>
-                <div class="hero_img_container">
-                    <img class="hero_img" src="images/headshot.jpeg">
-                </div>
-                <!--<button class="main_btn"><a href="#">Explore</a></button>-->
+                <div class="hero_torus_container" id="hero-torus"></div>
             </div>
+            <a href="#timeline" class="hero_scroll" aria-label="Scroll to Experience">
+                Scroll
+                <span class="hero_scroll_arrow" aria-hidden="true">↓</span>
+            </a>
         </div>
 
         <!--Timeline-->

@@ -1,22 +1,9 @@
 // Cache DOM elements for better performance
-const menu = document.querySelector('#mobile-menu');
-const menuLinks = document.querySelector('.navbar_menu');
-const navBar = document.querySelector('.navbar');
-const navLogo = document.querySelector('#navbar_logo');
+const navBar = document.querySelector('#navbar');
+const navToggle = document.querySelector('#mobile-menu');
+const navToggleIcon = document.querySelector('#mobile-menu-icon');
+const navMobile = document.querySelector('#navbar-mobile');
 const line = document.querySelector('#line_id');
-
-// Debounce function for scroll events
-const debounce = (func, wait) => {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-};
 
 // Throttle function for performance-critical scroll events
 const throttle = (func, limit) => {
@@ -32,60 +19,71 @@ const throttle = (func, limit) => {
     };
 };
 
-// Display Mobile Menu
-const mobileMenu = () => {
-    menu.classList.toggle('is-active');
-    menuLinks.classList.toggle('is-active');
-    navBar.classList.toggle('is-active');
-};
-
-menu.addEventListener('click', mobileMenu);
-
-// Close mobile Menu when click on menu item
-const hideMobileMenu = () => {
-    const menuBars = document.querySelector('.is-active'); // menu list is down
-    if (window.innerWidth <= 980 && menuBars) {
-        menu.classList.remove('is-active');
-        menuLinks.classList.remove('is-active');
-        navBar.classList.remove('is-active');
+// Glass blur fades in past 20px scroll.
+const onScroll = () => {
+    if (window.scrollY > 20) {
+        navBar.classList.add('scrolled');
+    } else {
+        navBar.classList.remove('scrolled');
     }
 };
+onScroll();
+window.addEventListener('scroll', throttle(onScroll, 50), { passive: true });
 
-menuLinks.addEventListener('click', hideMobileMenu);
-navLogo.addEventListener('click', hideMobileMenu);
+const setMobileOpen = (open) => {
+    navBar.classList.toggle('mobile-open', open);
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navMobile.hidden = !open;
+    navToggleIcon.classList.toggle('fa-bars', !open);
+    navToggleIcon.classList.toggle('fa-xmark', open);
+};
 
-// show active menu when scrolling
-const highlightMenu = () => {
-    const elem = document.querySelector('.highlight')
-    const homeMenu = document.querySelector('#home-page')
-    const aboutMenu = document.querySelector('#about-page')
-    const projectsMenu = document.querySelector('#projects-page')
-    let scrollPos = window.scrollY
+navToggle.addEventListener('click', () => {
+    const isOpen = navBar.classList.contains('mobile-open');
+    setMobileOpen(!isOpen);
+});
 
-    // Adds 'highlight' class to menu items - class should only work if not in mobile
-    if(window.innerWidth > 960 && scrollPos < 600) { // 600 is when we should be on home highlighted
-        homeMenu.classList.add('highlight')
-        projectsMenu.classList.remove('highlight')
-        return
-    } else if (window.innerWidth > 960 && scrollPos < 1400) {
-        homeMenu.classList.remove('highlight')
-        aboutMenu.classList.remove('highlight')
-        projectsMenu.classList.add('highlight')
-        return
-    } else if (window.innerWidth > 960 && scrollPos < 3545) {
-        aboutMenu.classList.add('highlight')
-        projectsMenu.classList.remove('highlight')
-        return
+navMobile.addEventListener('click', (e) => {
+    if (e.target.matches('a')) setMobileOpen(false);
+});
+
+// Active section highlight — section's top within 35vh of viewport top → active.
+const navAnchors = document.querySelectorAll('.navbar_anchor[data-section]');
+const sectionsById = Array.from(
+    new Set(Array.from(navAnchors).map((a) => a.dataset.section))
+)
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+
+const setActiveAnchor = (activeId) => {
+    navAnchors.forEach((anchor) => {
+        const isActive = anchor.dataset.section === activeId;
+        anchor.classList.toggle('active', isActive);
+        anchor.setAttribute('aria-current', isActive ? 'page' : 'false');
+    });
+};
+
+const highlightOnScroll = () => {
+    if (sectionsById.length === 0) return;
+    // No highlight on first load — wait until the user actually scrolls.
+    if (window.scrollY < 50) {
+        setActiveAnchor(null);
+        return;
     }
+    const triggerY = window.innerHeight * 0.35;
+    let activeId = null;
+    sectionsById.forEach((section) => {
+        if (section.getBoundingClientRect().top <= triggerY) {
+            activeId = section.id;
+        }
+    });
+    setActiveAnchor(activeId);
+};
 
-    if ((elem && window.innerWidth < 960 && scrollPos < 600) || elem) {
-        elem.classList.remove('highlight')
-
-    }
-}
-
-window.addEventListener('scroll', highlightMenu);
-window.addEventListener('click', highlightMenu);
+window.addEventListener('scroll', throttle(highlightOnScroll, 50), { passive: true });
+window.addEventListener('resize', throttle(highlightOnScroll, 100));
+window.addEventListener('load', highlightOnScroll);
+highlightOnScroll();
 
 // Restore scroll to top of page on refresh
 if (history.scrollRestoration) {

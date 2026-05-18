@@ -1,118 +1,129 @@
-/* Hero Section */
+/* Hero — ported sizing/spacing from eshankumar-io. */
+
 .hero {
-  padding: 80px;
-  height: 90% 
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 1rem; /* clear the fixed navbar */
 }
 
 .hero_container {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 72rem;       /* max-w-6xl = 1152px */
+  padding: 0 1.5rem;       /* px-6 */
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;             /* gap-10 */
   align-items: center;
+}
+
+@media (min-width: 640px) {
+  .hero_container { padding: 0 2.5rem; }    /* sm:px-10 */
+}
+
+@media (min-width: 768px) {
+  .hero_container { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 1024px) {
+  .hero_container {
+    padding: 0 4rem;       /* lg:px-16 */
+    gap: 4rem;             /* lg:gap-16 */
+  }
 }
 
 .hero_words {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  max-width: 700px;
   margin: 0 auto;
-  height: 90%;
-  padding: 30px;
+  max-width: 36rem;        /* max-w-xl = 576px */
 }
 
 .hero_heading {
-  font-size: 100px;
+  /* myFont-Light = the actual Apple Garamond Light face (loaded in
+     general.css). Without it, font-weight: 300 falls back to Regular
+     and the h1 default of `bold` makes it look heavy. */
+  font-family: myFont-Light, myFont, Georgia, serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.05;
   color: white;
-  max-width: 584;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .hero_heading { font-size: 60px; }     /* sm:text-6xl */
+}
+
+@media (min-width: 1024px) {
+  .hero_heading { font-size: 96px; }     /* lg:text-8xl */
 }
 
 .hero_words p {
-  font-family: myFont-secondary, Arial;
-  font-size: 25px;
-  margin: 15px;
+  font-family: "Nunito", system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 18px;          /* text-lg */
+  line-height: 1.625;       /* leading-relaxed */
   color: var(--font-gray);
+  margin: 0;
 }
 
+@media (min-width: 640px) {
+  .hero_words p { font-size: 20px; }     /* sm:text-xl */
+}
+
+/* Particle torus canvas mounts here. Hidden on mobile.
+   `closest-side` sizing is critical — default farthest-corner leaves
+   the box edges at ~71% of the gradient (still partially visible). */
+.hero_torus_container {
+  display: none;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  -webkit-mask-image: radial-gradient(circle closest-side at center, black 50%, transparent 95%);
+  mask-image: radial-gradient(circle closest-side at center, black 50%, transparent 95%);
+}
+
+.hero_torus_container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@media (min-width: 768px) {
+  .hero_torus_container {
+    display: block;
+  }
+}
+
+/* Scroll cue. */
 .hero_scroll {
-  font-family: myFont-Italic, Arial;
-  font-size: 50px;
-  color: white;
-  background: var(--medium-hue);
-  background: -webkit-linear-gradient(to right, var(--medium-hue), var(--light-hue));
-  background: linear-gradient(to right, var(--medium-hue), var(--light-hue));
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-
-.hero_img_container {
-  height: 500px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-.hero_img {
   position: absolute;
-  object-fit: cover;
-  height: 500px;
-  width: 500px;
-  border-radius: 20px;
+  bottom: 2.5rem;          /* bottom-10 */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;             /* gap-2 */
+  font-family: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
+  font-size: 10px;          /* text-[10px] */
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;    /* tracking-[0.3em] */
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-@media screen and (max-width: 1100px) {
-  .hero_container {
-    grid-template-columns: 1fr;
-  }
-  .hero_heading {
-    font-size: 60px;
-  }
-  .hero_words {
-    font-size: 20px;
-  }
-  .hero_scroll {
-    font-size: 40px;
-  }
-  .hero_img_container {
-    height: 425px;
-  }
-  .hero_img {
-    height: 425px;
-    width: 425px;
-  }
+.hero_scroll:hover {
+  color: rgba(255, 255, 255, 1);
 }
 
-@media screen and (max-width: 430px) {
-  .hero {
-    padding: 0px;
-  }
-  .hero_img {
-    height: 250px;
-  }
-  .hero_heading {
-    padding: 0 30px;
-    font-size: 50px;
-  }
-  .hero_words p {
-    font-size: 17px;
-  }
-  .hero_scroll {
-    font-size: 25px;
-  }
-  .hero_img_container {
-    height: 200px;
-  }
-  .hero_img {
-    height: 200px;
-    width: 200px;
-  }
-}
-
-@media screen and (min-height: 1000px) {
-  .hero {
-    padding: 120px 80px;
-  }
+.hero_scroll_arrow {
+  font-size: 16px;          /* text-base */
+  line-height: 1;
 }
