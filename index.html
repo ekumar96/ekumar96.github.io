@@ -21,7 +21,6 @@
         <link rel="stylesheet", href="styles/projects.css">
         <link rel="stylesheet", href="styles/timeline.css">
         <link rel="stylesheet", href="styles/conclusion.css">
-        <link rel="stylesheet", href="styles/footer.css">
         <!-- Nunito: humanist sans with rounded terminals - pairs cleanly
              with Apple Garamond. Used for navbar anchors + hero subtext. -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,6 +35,7 @@
             }
         </script>
         <script type="module" src="particle-torus.js"></script>
+        <script type="module" src="dotted-surface.js"></script>
     </head>
     <body>
         <div class="background"></div>
@@ -364,47 +364,52 @@
             </div>
         </section>
 
-        <!-- Bio -->
-        <div class="bio hidden">
-            <img src="images/gifs/aiorganism.gif">
-            <div class="bio_text">
-                I'm an engineer who thrives at the intersection of AI systems and biological sciences. My journey spans building production agentic AI infrastructure at AWS Bedrock, engineering ML tools used in live therapeutic pipelines at Codexis, and researching de novo protein design with Nobel Laureate Dr. David Baker. Whether it's architecting secure microVM execution environments for enterprise AI agents, rolling out systems that handle 300PB of data daily, or optimizing API latencies 200x - I own problems end-to-end and ship results that matter.
+        <!-- About -->
+        <section class="about" id="about">
+            <div class="about_container">
+                <header class="section_header">
+                    <p class="section_eyebrow">About</p>
+                    <h2 class="section_title">What drives me</h2>
+                </header>
+                <div class="about_grid">
+                    <div class="about_headshot">
+                        <img src="images/headshot.png" alt="Eshan Kumar">
+                    </div>
+                    <div class="about_prose">
+                        <p>I'm an engineer who thrives at the intersection of AI systems and biological sciences. My journey spans building production agentic AI infrastructure at AWS Bedrock, engineering ML tools used in live therapeutic pipelines at Codexis, and researching de novo protein design with Nobel Laureate Dr. David Baker.</p>
+                        <p>Whether it's architecting secure microVM execution environments for enterprise AI agents, rolling out systems that handle 300PB of data daily, or optimizing API latencies 200x &mdash; I own problems end-to-end and ship results that matter.</p>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
+        <!-- Contact -->
+        <section class="contact" id="contact">
+            <div class="contact_wave" id="contact-wave"></div>
+            <div class="contact_container">
+                <div class="contact_card">
+                    <p class="section_eyebrow">Contact</p>
+                    <h2 class="section_title">Let's build something</h2>
+                    <p class="contact_tagline">I'm drawn to teams tackling hard problems.</p>
 
-        <!-- Conclusion section -->
-        <div class="conclusion hidden">
-            <div class="conclusion_img_container">
-                <img class="conclusion_img" src="images/hands_typing.png">
-            </div>
-            <div class="conclusion_content">
-                <h1>Ready to build something Amazing?</h1>
-                <h2>I'm drawn to teams tackling hard problems at the frontier of AI and science</h2>
-                <a href="mailto:ekumar+website@gmail.com", target="_blank">
-                    <div class="main_btn conclusion_btn"><div class="btn_text">Let's Connect</div></div>
-                </a>
-            </div>
-        </div>
+                    <div class="contact_pill">
+                        <a href="mailto:ekumar+web@gmail.com" class="contact_email_btn">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://github.com/ekumar96" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="contact_icon_btn">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/eshan-kumar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="contact_icon_btn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
 
-        <!-- Footer Section -->
-        <div class="footer_container">
-            <div class="footer_logo">
-                <a href="#">EK</a>
+                    <p class="contact_email_text">ekumar+web@gmail.com</p>
+                </div>
+                <p class="contact_copyright">&copy; 2026 Eshan Kumar</p>
             </div>
-            <p class="website_rights">Eshan Kumar © 2025</p>
-            <div class="social_icons">
-                <a href="https://github.com/ekumar96" class="social_icon_link">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/eshan-kumar/" class="social_icon_link">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:ekumar+website@gmail.com" class="social_icon_link">
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
-            </div>
-        </div>
+        </section>
 
         <script defer src="app.js"></script>
     </body>
