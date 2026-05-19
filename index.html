@@ -244,107 +244,125 @@
             </a>
         </div>
 
-        <!-- Projects section -->
-        <div class="projects" id="projects">
-            <h1>Notable Projects</h1>
-            <div class="projects_wrapper">
-                <div class="scroll_fade"></div>
-                <div class="scroll_fade"></div>
-                <div class="scroll_spacer"></div>
-                <a href="https://github.com/ekumar96/LinuxOperatingSystem/blob/main/README.md" target="_blank">
-                    <div class="projects_card hidden-left">
-                        <h2>Linux Kernel Operating System</h2>
-                        <h3>Built core OS systems from scratch in C++</h3>
-                        <div class="projects_btn"><button>Details</button></div>
-                        <p><span>Key Elements:</span> CPU scheduler, Syscalls, Multi-Process Web Server with IPC, Filesystem Driver, Kernel KKV</p>
+        <!-- Projects section — Fey-style horizontal accordion -->
+        <section class="projects" id="projects">
+            <div class="projects_container">
+                <header class="section_header">
+                    <p class="section_eyebrow">Projects</p>
+                    <h2 class="section_title">Notable work</h2>
+                </header>
+
+                <div class="accordion_row">
+                    <button class="acc_panel selected" type="button" data-tone="1" aria-expanded="true">
+                        <div class="acc_panel_title">Linux Kernel OS</div>
+                        <div class="acc_panel_content">
+                            <div class="acc_panel_header">
+                                <div class="acc_panel_icon"><i class="fa-solid fa-terminal"></i></div>
+                                <div class="acc_panel_meta">
+                                    <h3>Linux Kernel OS</h3>
+                                    <p class="acc_subtitle">OS systems built from scratch</p>
+                                    <p class="acc_tag">C++</p>
+                                </div>
+                            </div>
+                            <p class="acc_description">CPU scheduler, syscalls, multi-process web server with IPC, filesystem driver, and an in-kernel key-value store — all built ground-up to internalize how a real operating system holds itself together.</p>
+                            <a class="cta_pill" href="https://github.com/ekumar96/LinuxOperatingSystem/blob/main/README.md" target="_blank" rel="noopener noreferrer">Code<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </button>
+
+                    <button class="acc_panel" type="button" data-tone="2" aria-expanded="false">
+                        <div class="acc_panel_title">Distributed KV Store</div>
+                        <div class="acc_panel_content">
+                            <div class="acc_panel_header">
+                                <div class="acc_panel_icon"><i class="fa-solid fa-network-wired"></i></div>
+                                <div class="acc_panel_meta">
+                                    <h3>Distributed KV Store</h3>
+                                    <p class="acc_subtitle">Sequentially consistent K/V service</p>
+                                    <p class="acc_tag">Go · Paxos</p>
+                                </div>
+                            </div>
+                            <p class="acc_description">Sharded, replicated key-value service with Paxos consensus. Tolerates node failures, recovers state after partitions, and exposes a clean client interface — the fundamentals of every modern distributed database.</p>
+                            <a class="cta_pill" href="https://drive.google.com/drive/folders/1j0wiZyXhKc0pfdpcIjbQUyF6TkWQvcJb?usp=sharing" target="_blank" rel="noopener noreferrer">Code<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </button>
+
+                    <button class="acc_panel" type="button" data-tone="3" aria-expanded="false">
+                        <div class="acc_panel_title">Project Haven</div>
+                        <div class="acc_panel_content">
+                            <div class="acc_panel_header">
+                                <div class="acc_panel_icon"><i class="fa-solid fa-cloud"></i></div>
+                                <div class="acc_panel_meta">
+                                    <h3>Project Haven</h3>
+                                    <p class="acc_subtitle">Cloud microservices for landlord reviews</p>
+                                    <p class="acc_tag">AWS</p>
+                                </div>
+                            </div>
+                            <p class="acc_description">Architected a microservices platform on AWS — EC2, API Gateway, Lambda, SNS — with OIDC/OAuth2 auth and SmartyStreets address verification. End-to-end systems design, deployment, and customer demo.</p>
+                            <a class="cta_pill" href="https://drive.google.com/drive/folders/1jsPv1LKbjS6ojgVFNsRmQFsXMWrFXJKg?usp=sharing" target="_blank" rel="noopener noreferrer">Presentation<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </button>
+
+                    <button class="acc_panel" type="button" data-tone="4" aria-expanded="false">
+                        <div class="acc_panel_title">Corn Disease ID</div>
+                        <div class="acc_panel_content">
+                            <div class="acc_panel_header">
+                                <div class="acc_panel_icon"><i class="fa-solid fa-seedling"></i></div>
+                                <div class="acc_panel_meta">
+                                    <h3>Corn Disease ID</h3>
+                                    <p class="acc_subtitle">Computer vision for food security</p>
+                                    <p class="acc_tag">1st · Columbia Hackathon</p>
+                                </div>
+                            </div>
+                            <p class="acc_description">Won 1st place at the Columbia Hackathon for an image-classification model that diagnoses corn leaf disease. Pitched as a tool for smallholder farmers in food-insecure regions — practical CV with a social-justice frame.</p>
+                            <a class="cta_pill" href="https://drive.google.com/drive/folders/1G00ycnfvYe1glnxDgjSRvS8lXr3FfiBs?usp=sharing" target="_blank" rel="noopener noreferrer">Pitch<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </button>
+
+                    <button class="acc_panel" type="button" data-tone="5" aria-expanded="false">
+                        <div class="acc_panel_title">Hierarchical CV Model</div>
+                        <div class="acc_panel_content">
+                            <div class="acc_panel_header">
+                                <div class="acc_panel_icon"><i class="fa-solid fa-eye"></i></div>
+                                <div class="acc_panel_meta">
+                                    <h3>Hierarchical CV Model</h3>
+                                    <p class="acc_subtitle">Branch CNN image classification</p>
+                                    <p class="acc_tag">Top ranked</p>
+                                </div>
+                            </div>
+                            <p class="acc_description">Multi-head branch-CNN that exploits hierarchical label structure for image classification. Combined transfer learning with custom architecture; ranked at the top of a competitive class leaderboard.</p>
+                            <a class="cta_pill" href="https://drive.google.com/drive/folders/1AQGMpi5RCcJPX9raDWGdAR4DRwTKDidh?usp=sharing" target="_blank" rel="noopener noreferrer">Paper<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </button>
+
+                    <button class="acc_panel" type="button" data-tone="6" aria-expanded="false">
+                        <div class="acc_panel_title">Clubfoot Orthosis</div>
+                        <div class="acc_panel_content">
+                            <div class="acc_panel_header">
+                                <div class="acc_panel_icon"><i class="fa-solid fa-stethoscope"></i></div>
+                                <div class="acc_panel_meta">
+                                    <h3>Clubfoot Orthosis</h3>
+                                    <p class="acc_subtitle">Compliance-monitoring orthotic</p>
+                                    <p class="acc_tag">1st · UCLA Symposium</p>
+                                </div>
+                            </div>
+                            <p class="acc_description">1st place at the UCLA Bioengineering Symposium. Designed a wearable orthotic with custom PCB and CAD-built housing that logs wear data — turning treatment compliance into measurable signal for pediatric clinicians.</p>
+                            <a class="cta_pill" href="https://drive.google.com/file/d/1XRXsEWfJet-bhKgs5s3-anV17aJfrPCn/view?usp=sharing" target="_blank" rel="noopener noreferrer">Poster<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="skills_container hidden">
+                    <div class="skills_title">Technical Expertise</div>
+                    <div class="skills_card">
+                        <div class="skill_category"><i class="fas fa-code fa-2xs"></i> Languages &amp; Frameworks:</div>
+                        <div class="skill_list">Kotlin, Java, C, C++, Go, Python, TypeScript, Scala, Ruby, MATLAB, React Native, JavaScript, GraphQL, Apollo Client, HTML, CSS</div>
+                        <div class="skill_category"><i class="fas fa-database fa-2xs"></i> Cloud, Systems &amp; Data:</div>
+                        <div class="skill_list">AWS Lambda, API Gateway, S3, Bedrock, DynamoDB, Aurora MySQL, ECS Fargate, CDK, Docker, CloudWatch, Linux, Unix, SQL, MySQL, MongoDB, Neo4j</div>
+                        <div class="skill_category"><i class="fas fa-brain fa-2xs"></i> ML, Tools &amp; Research:</div>
+                        <div class="skill_list">TensorFlow, PyTorch, Keras, Pandas, Git, Node.js, Jest / React Testing Library, Rosetta / PyRosetta, Geneious, CAD</div>
                     </div>
-                </a>
-                <a href="https://drive.google.com/drive/folders/1jsPv1LKbjS6ojgVFNsRmQFsXMWrFXJKg?usp=sharing" target="_blank">
-                    <div class="projects_card hidden-left" id="card2">
-                        <h2>Project Haven</h2>
-                        <h3>Architected AWS microservices platform for landlord reviews</h3>
-                        <div class="projects_btn"><button>Presentation & Demo</button></div>
-                        <p><span>Key Elements:</span> Microservices, AWS EC2, AWS API Gateway, OIDC, OAuth2, AWS SNS, AWS Lambda, SQL, SmartyStreets</p>
-                    </div>
-                </a>
-                <a href="https://drive.google.com/drive/folders/1G00ycnfvYe1glnxDgjSRvS8lXr3FfiBs?usp=sharing" target="_blank">
-                    <div class="projects_card hidden-left" id="card3">
-                        <h2>Corn Disease Identification ML Model</h2>
-                        <h3>1st place @ Columbia Hackathon - Computer vision for food security</h3>
-                        <div class="projects_btn"><button>Pitch & Presentation</button></div>
-                        <p><span>Key Elements:</span> Computer Vision, Food Scarcity, Social Justice</p>
-                    </div>
-                </a>
-                <a href="https://drive.google.com/drive/folders/1j0wiZyXhKc0pfdpcIjbQUyF6TkWQvcJb?usp=sharing" target="_blank">
-                    <div class="projects_card hidden-left" id="card4">
-                        <h2>Distributed KV Store</h2>
-                        <h3>Built sequentially consistent key-value service with Paxos consensus</h3>
-                        <div class="projects_btn"><button>Code</button></div>
-                        <p><span>Key Elements:</span> Sharding/Replication, Go, Paxos, Client Interface</p>
-                    </div>
-                </a>
-                <a href="https://drive.google.com/drive/folders/1AQGMpi5RCcJPX9raDWGdAR4DRwTKDidh?usp=sharing" target="_blank">
-                    <div class="projects_card hidden-left" id="card5">
-                        <h2>Hierarchical-label Comp. Vision model</h2>
-                        <h3>Ranked Top in Image Classification Competition</h3>
-                        <div class="projects_btn"><button>Research Paper & Code</button></div>
-                        <p><span>Key Elements:</span> Neural Networks/Deep Learning, Computer Vision, Multi-head model, Branch CNN, Transfer Learning</p>
-                    </div>
-                </a>
-                <a href="https://drive.google.com/drive/folders/1ePEkAWwbLoTiysvqhwqu7wWgmHpUkfyt?usp=sharing" target="_blank">
-                    <div class="projects_card hidden-left">
-                        <h2>Simulated Robotic Arm Programming</h2>
-                        <h3>Designed simulated Robot to perform ML-based navigation</h3>
-                        <div class="projects_btn"><button>Demo & Code</button></div>
-                        <p><span>Key Elements:</span> Visual Affordance, RRT, Image Segmentation, Path Planning, Object Grasping</p>
-                    </div>
-                </a>
-                <a href="https://drive.google.com/file/d/1XRXsEWfJet-bhKgs5s3-anV17aJfrPCn/view?usp=sharing" target="_blank">
-                    <div class="projects_card hidden-left">
-                        <h2>Clubfoot Data Collection Orthosis</h2>
-                        <h3>1st place @ UCLA Bioengineering Symposium</h3>
-                        <div class="projects_btn"><button>Symposium Poster</button></div>
-                        <p><span>Key Elements:</span> Medicine, Hardware, PCB Design, CAD, Data Collection, Research, Compliance Monitoring</p>
-                    </div>
-                </a>
-                <a href="https://drive.google.com/drive/folders/1bSwceCsxhyuBZO1jun5hutCLULyYXyaJ?usp=sharing" target="_blank">
-                    <div class="projects_card hidden-left">
-                        <h2>Global Crop Yield Prediction w/ ML</h2>
-                        <h3>Achieved 0.988 val accuracy and created Causal Model</h3>
-                        <div class="projects_btn"><button>Presentation & Code</button></div>
-                        <p><span>Key Elements:</span> Bayesian Hyperparameter Optimization, Random Forest, Microsoft DoWhy, Climate Change, Food Scarcity</p>
-                    </div>
-                </a>
-                <a href="https://drive.google.com/file/d/1s27pyNfNRY0dgJLdslEf5tnyDaBBMivq/view?usp=sharing" target="_blank">
-                    <div class="projects_card hidden-left">
-                        <h2>Academic Database Redesign</h2>
-                        <h3>Enhanced Academic Data Management with SQL</h3>
-                        <div class="projects_btn"><button>Code</button></div>
-                        <p><span>Key Elements:</span> Data Loading, Transformation, SQL Tables, Functions, Triggers</p><p></p>
-                    </div>
-                </a>
-                <a href="https://drive.google.com/drive/folders/1rMgboQ4P45MU0t3xQcwALATsdxpFnv_v?usp=sharing" target="_blank">
-                    <div class="projects_card hidden-left">
-                        <h2>HTTP 1.0 Web Server</h2>
-                        <h3>Created Server for static and dynamic content in C</h3>
-                        <div class="projects_btn"><button>Code</button></div>
-                        <p><span>Key Elements:</span> Valgrind, C, Web Server, HTTP</p><p></p>
-                    </div>
-                </a>
-                <div class="scroll_spacer"></div>
-            </div>
-            <div class="skills_container hidden">
-                <div class="skills_title">Technical Expertise</div>
-                <div class="skills_card">
-                    <div class="skill_category"><i class="fas fa-code fa-2xs"></i> Languages & Frameworks:</div>
-                    <div class="skill_list">Kotlin, Java, C/C++, Go, Python, TypeScript, React Native, GraphQL</div>
-                    <div class="skill_category"><i class="fas fa-database fa-2xs"></i> Systems & Data:</div>
-                    <div class="skill_list">Distributed Systems, SQL, MongoDB, AWS (Lambda, S3, DynamoDB, Bedrock, ECS), Docker, microVMs</div>
-                    <div class="skill_category"><i class="fas fa-brain fa-2xs"></i> ML & Research:</div>
-                    <div class="skill_list">PyTorch, TensorFlow, Agentic AI, Computer Vision, Bioinformatics, Protein Engineering</div>                    
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Bio -->
         <div class="bio hidden">

@@ -1,288 +1,401 @@
-/* Projects section */
+/*
+  Projects section — Fey-style horizontal accordion.
+
+  Layout: flex row of 6 button panels. All have `flex: 1` so they fill
+  the row equally; the selected one gets `flex-grow: 5` so it owns most
+  of the width while the others shrink to vertical-title slivers.
+  Width transitions via flex-grow with a smooth cubic-bezier so it reads
+  spring-like without a real spring physics engine.
+
+  All panels are teal-tinted glass — same hue, different gradient
+  angle / origin per panel for visual variety. backdrop-filter does the
+  actual "glass" cue.
+*/
+
 .projects {
+  padding: 100px 24px;
+}
+
+.projects_container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section_header {
+  margin-bottom: 3rem;
+}
+
+.section_eyebrow {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--font-gray-2);
+  margin: 0 0 0.75rem 0;
+}
+
+.section_title {
+  font-family: myFont-Light, myFont, Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: white;
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* Accordion row — flex distributes panels across the full container. */
+.accordion_row {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  padding: 100px 0;
+  gap: 12px;
+  width: 100%;
+}
+
+/*
+  Each panel: flex: 1 base. Selected gets flex-grow: 5 so it claims ~5/10
+  of the row while the other 5 each get 1/10. The transition is on
+  flex-grow because that's the property that actually animates between
+  the two states.
+
+  Background stack (back to front): dark base color, then the teal PNG
+  applied as ::before with mix-blend-mode hard-light for atmosphere,
+  then a darken overlay as ::after for text readability, then the
+  rotated title and content sit on top via z-index.
+*/
+.acc_panel {
+  flex: 1 1 0;
+  min-width: 0;
   position: relative;
-}
-
-.projects h1 {
+  isolation: isolate;
+  height: 360px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: rgba(20, 40, 40, 0.55);
+  /* Uniform 1px glass border. Same hairline edge on all four sides
+     reads as "one slab of glass" — asymmetric thick top/bottom edges
+     read as hardware. */
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  /* Inset top + bottom highlights + outer drop shadow = glass slab
+     catching light from above and refracting at the bottom. */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  /* Weighty but not draggy. Ease-in-out for thick-glass inertia; 0.9s
+     is the sweet spot — long enough to feel like a slab settling,
+     short enough to not feel sluggish. */
+  transition:
+    flex-grow 0.9s cubic-bezier(0.65, 0, 0.35, 1),
+    border-color 0.5s ease;
+  appearance: none;
+  outline: none;
+  padding: 0;
   color: white;
-  margin-bottom: 2rem;
-  font-size: 60px;
-  text-align: center;
-  padding: 20px;
+  font-family: inherit;
+  text-align: left;
 }
 
-.projects_wrapper {
-  padding: 20px;
-  display: grid;
-  grid-auto-flow: column;
-  overflow-x: auto;
-  overflow-y: hidden;
-  overscroll-behavior-inline: contain;
-  max-width: 1fr;
-
-  scroll-snap-type: inline mandatory;
-  /*grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;*/
+.acc_panel:focus-visible {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 0 2px rgba(255, 255, 255, 0.4);
 }
 
-.projects_wrapper::-webkit-scrollbar {
-  display:none;
+.acc_panel.selected {
+  flex-grow: 5;
+  border-color: rgba(29, 189, 168, 0.45);
 }
 
-.projects_wrapper > * {
-  scroll-snap-align: center;
-}
-
-.scroll_fade {
+/*
+  Ethereal teal background per panel. The new PNGs are already soft and
+  diffuse out of the gate, so no CSS blur is needed here — let the image
+  carry its own texture. Scale 1.04 at rest just gives the painting room
+  to "breathe open" to 1.12 when selected.
+*/
+.acc_panel::before {
+  content: '';
   position: absolute;
-  z-index: 500;
-  height: 800px;
-  width: 50px;
-  top: 150px;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: hard-light;
+  opacity: 0.55;
+  transform: scale(1.04);
+  transition:
+    opacity 0.9s cubic-bezier(0.65, 0, 0.35, 1),
+    transform 0.9s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-.projects_wrapper .scroll_fade:nth-child(1) {
-  right: 0px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)); 
+.acc_panel.selected::before {
+  opacity: 0.7;
+  transform: scale(1.12);
 }
 
-.projects_wrapper .scroll_fade:nth-child(2) {
-  left: 0px;
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)); 
+.acc_panel[data-tone="1"]::before { background-image: url('../images/panels/panel-bg-1.png'); }
+.acc_panel[data-tone="2"]::before { background-image: url('../images/panels/panel-bg-2.png'); }
+.acc_panel[data-tone="3"]::before { background-image: url('../images/panels/panel-bg-3.png'); }
+.acc_panel[data-tone="4"]::before { background-image: url('../images/panels/panel-bg-4.png'); }
+.acc_panel[data-tone="5"]::before { background-image: url('../images/panels/panel-bg-5.png'); }
+.acc_panel[data-tone="6"]::before { background-image: url('../images/panels/panel-bg-6.png'); }
+
+/*
+  Thick frosted-glass film on top of the painting.
+
+  The key trick: `backdrop-filter: blur(20px)` here samples everything
+  painted behind ::after within the panel's stacking context (the PNG
+  in ::before, plus the panel's bg-color), Gaussian-blurs that buffer,
+  and uses it as ::after's backdrop. So the PNG itself is sharp on
+  disk but appears blurred-through-glass on screen — exactly the
+  "thick frosted glass over an ethereal painting" effect.
+
+  The two stacked gradients add the glass tint + lit top edge + soft
+  bottom shadow on top of the frosted backdrop.
+*/
+.acc_panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.08) 0%,
+      transparent 25%,
+      transparent 70%,
+      rgba(0, 0, 0, 0.4) 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(10, 36, 36, 0.45) 0%,
+      rgba(4, 18, 22, 0.6) 100%
+    );
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  pointer-events: none;
 }
 
-.scroll_spacer {
-  width: 40px;
-  height: 400px;
+/*
+  Vertical rotated title — centered on each panel (left: 50%) so the
+  collapsed panels show it dead-center. When the panel is selected,
+  the title fades to 0 so it doesn't bleed through the content column.
+*/
+.acc_panel_title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  transform-origin: center;
+  font-family: myFont-Light, myFont, Georgia, serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.9);
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 0;
 }
 
-.projects_card {
-  margin: 10px;
-  padding: 0px 40px;
-  height: 400px;
-  width: 309px;
-  border-radius: 20px;
+.acc_panel.selected .acc_panel_title {
+  opacity: 0;
+}
+
+/*
+  Expanded content.
+
+  Two problems we're solving:
+    1. Text reflow jitter — the panel grows from ~120px → ~600px wide
+       over 1.5s. If content is visible during that grow, the text
+       wraps continuously as the available width changes, which looks
+       like jitter. Fix: keep content fully invisible (opacity 0) until
+       the panel is essentially done expanding, then fade it in.
+    2. The "pop in" once visible — even with no reflow, a sudden
+       opacity 0→1 reads as abrupt. Fix: pair the opacity fade with a
+       short translateX(-10px → 0) so the text "settles" into place.
+*/
+.acc_panel_content {
+  position: absolute;
+  inset: 0;
+  padding: 36px 70px 32px 76px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  /*border-top: solid 2px rgba(255, 255, 255, 0.55);*/
-  background: var(--dark-hue); /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    180deg,
-    var(--medium-hue) 0%,
-    var(--dark-hue) 70%
-  );  /* Chrome 10-25, Safari 5.1-6 */ 
-  background-image: linear-gradient(
-    180deg,
-    var(--medium-hue) 0%,
-    var(--dark-hue) 70%
-  );
+  opacity: 0;
+  transform: translateX(-10px);
+  pointer-events: none;
+  transition:
+    opacity 0.45s cubic-bezier(0.32, 0.72, 0, 1),
+    transform 0.55s cubic-bezier(0.32, 0.72, 0, 1);
+  z-index: 1;
 }
 
-#card2 {
-  transition: all 0.3s ease-in, translate 1s 400ms ease-in-out, opacity 1s 400ms ease-in-out;
-  z-index: -10;
+.acc_panel.selected .acc_panel_content {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.8s;
+  pointer-events: auto;
 }
 
-#card3 {
-  transition: all 0.3s ease-in, translate 1s 600ms ease-in-out, opacity 1s 600ms ease-in-out;
-  z-index: -11;
-}
-
-#card4 {
-  transition: all 0.3s ease-in, translate 1s 800ms ease-in-out, opacity 1s 800ms ease-in-out;
-  z-index: -12;
-}
-
-#card5 {
-  transition: all 0.3s ease-in, translate 1s 1000ms ease-in-out, opacity 1s 1000ms ease-in-out;
-  z-index: -13;
-}
-
-.projects_card h2 {
-  font-size: 30px;
-}
-
-.projects_card h3 {
-  font-family: var(--font-secondary);
-  margin: 10px 0px;
-  font-size: 16px;
-  color: var(--font-gray-2)
-}
-
-.projects_card p {
-  font-family: var(--font-secondary);
-  text-align: left;
-  margin-top: 24px;
-  font-size: 12px;
-}
-.projects_card p span{
-  font-family: var(--font-secondary);
-  text-decoration: underline;
-}
-
-.projects_btn {
+.acc_panel_header {
   display: flex;
-  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.acc_panel_icon {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1;
+}
+
+.acc_panel_meta {
+  min-width: 0;
+}
+
+.acc_panel_header h3 {
+  font-family: myFont-Light, myFont, Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.acc_subtitle {
+  font-family: var(--font-secondary);
+  font-size: 0.8rem;
+  color: var(--font-gray-2);
+  margin: 4px 0 0 0;
+}
+
+.acc_tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--font-gray-2);
+  margin: 4px 0 0 0;
+  opacity: 0.75;
+}
+
+.acc_description {
+  font-family: var(--font-secondary);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.55;
+  flex: 1;
+  margin-right: 0;
+}
+
+/* Pill inside the panel — same as timeline pills but self-aligned start. */
+.acc_panel_content .cta_pill {
+  align-self: flex-start;
   margin-top: 16px;
 }
-.projects_btn button {
-  font-family: myFont-LightItalic;
-}
 
-.projects_card button,
-.projects_card button:active,
-.projects_card button:focus {
-  text-decoration: none; /* Remove underline on click or focus */
-}
-
-.projects_card button {
-  color: white;
-  padding: 14px 24px;
-  border: none;
-  outline: none;
-  border-radius: 20px;
-  background: var(--medium-hue);
-  font-size: 1rem;
-  transition: 0.35s all;
-}
-
-.projects_card button:hover {
-  cursor: pointer;
-  background: var(--dark-hue);
-  /*background-image: linear-gradient(to right, var(--dark-hue) 0%, var(--medium-hue) 100%);*/
-}
-
-.projects_card:hover {
-  transform: scale(1.075);
-  /*translate: 0 -10px;*/
-  transition: 0.3s ease-in;
-  cursor: pointer;
-}
-
+/* Technical Expertise — same layout as before but with smaller fonts and
+   wider rows so the longer skill lists wrap nicely. */
 .skills_container {
   display: flex;
   flex-direction: column;
-  margin: -4px 70px;
-  padding: 0 20px;
-  border-radius: 20px;
+  margin: 60px auto 0;
+  padding: 0 24px;
+  border-radius: 16px;
   justify-content: space-evenly;
   align-items: center;
   color: white;
-  /*background-image: linear-gradient(to right, var(--dark-gray) 0%, var(--medium-gray) 100%);*/
-  border: 4px solid white;
-  background: black;
-  min-width: 850px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.55);
+  max-width: 1200px;
 }
 
-.skills_title{
-  font-size: 50px;
+.skills_title {
+  font-size: 2rem;
   text-align: center;
-  padding: 30px 50px;
+  padding: 24px 40px 8px;
 }
 
 .skills_card {
   display: grid;
-  grid-template-columns: 1.4fr 2fr;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-  margin: 30px 30px;
+  grid-template-columns: minmax(180px, 1fr) 3fr;
+  column-gap: 24px;
+  row-gap: 8px;
+  align-items: start;
+  margin: 16px 24px 32px;
+  width: 100%;
+  max-width: 1100px;
 }
+
 .skill_category {
-  font-size: 30px;
-  padding: 10px;
+  font-size: 1.05rem;
+  padding: 6px 0;
   font-family: var(--font-secondary);
+  color: white;
 }
+
 .skill_list {
-  font-size: 18px;
-  padding: 10px 30px 10px 70px;
-  line-height: 26px;
+  font-size: 0.875rem;
+  padding: 6px 0;
+  line-height: 1.55;
   font-family: var(--font-secondary);
+  color: rgba(255, 255, 255, 0.85);
 }
 
-@media screen and (max-width: 1300px) {
-  .skills_container {
-    flex-direction: column;
-    padding: 20px; 
-  }
-  .background {
-    height: 350vh;
-  }
-}
-
+/*
+  Mobile: accordion would feel cramped in a row, so stack panels into
+  vertical bars with a small height. Selected panel grows in height
+  rather than width (same flex trick on the column axis).
+*/
 @media screen and (max-width: 768px) {
-  .background {
-    height: 450vh;
+  .accordion_row {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .acc_panel {
+    height: auto;
+    min-height: 70px;
+  }
+
+  .acc_panel.selected {
+    min-height: 460px;
+  }
+
+  .acc_panel_title {
+    transform: translate(-50%, -50%);
+  }
+
+  .acc_panel_content {
+    padding: 24px 20px 20px 24px;
+  }
+
+  .skills_card {
+    grid-template-columns: 1fr;
+    row-gap: 4px;
+  }
+
+  .skill_category {
+    padding-top: 12px;
   }
 }
 
 @media screen and (max-width: 430px) {
-  .projects h1 {
-    font-size: 40px;
-  }
-  .scroll_fade {
-    height: 400px;
-    width: 30px;
-  }
-  .projects_wrapper {
-    height: 345px;
-  }
-  .projects_card {
-    height: 300px;
-    width: 234px;
-    margin: 7px;
-  }
-  .scroll_spacer {
-    width: 0px;
-  }
-  .projects_card h2 {
-    font-size: 21px;
-  }
-  .projects_card h3 {
-    font-size: 12px;
-  }
-  .projects_card p {
-    font-size: 9px;
-    margin-top: 16px;
-  }
-  .projects_btn {
-    margin-top: 10px;
-  }
-  .projects_card button {
-    font-size: 12px;
+  .projects {
+    padding: 60px 16px;
   }
 
-  .skills_container {
-    margin: -4px 30px;
-    padding: 0 13px;
-    border: 3px solid white;
-    min-width: 300px;
+  .skills_title {
+    font-size: 1.5rem;
+    padding: 20px 16px 4px;
   }
-  
-  .skills_title{
-    font-size: 27px;
-    padding: 22px 37px;
-  }
-  
-  .skills_card {
-    grid-template-columns: 1.9fr 2fr;
-    margin: 22px 22px;
-  }
+
   .skill_category {
-    font-size: 15px;
-    padding: 0px;
+    font-size: 0.95rem;
   }
+
   .skill_list {
-    font-size: 10px;
-    padding: 0px 0px 20px 22px;
-    line-height: 19px;
+    font-size: 0.8rem;
   }
 }

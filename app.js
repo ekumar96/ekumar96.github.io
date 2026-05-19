@@ -172,6 +172,23 @@ const hiddenLeftElements = document.querySelectorAll('.hidden-left');
 hiddenElements.forEach((el) => observer.observe(el));
 hiddenLeftElements.forEach((el) => observer_left.observe(el));
 
+// Projects accordion — hover, click, or focus a panel to expand it.
+// All others get their `selected` class removed; flex-grow handles the width.
+const accordionPanels = document.querySelectorAll('.acc_panel');
+accordionPanels.forEach((panel) => {
+    const select = () => {
+        if (panel.classList.contains('selected')) return;
+        accordionPanels.forEach((p) => {
+            const isThis = p === panel;
+            p.classList.toggle('selected', isThis);
+            p.setAttribute('aria-expanded', isThis ? 'true' : 'false');
+        });
+    };
+    panel.addEventListener('mouseenter', select);
+    panel.addEventListener('focus', select);
+    panel.addEventListener('click', select);
+});
+
 // Cleanup function for memory management
 const cleanup = () => {
     observer.disconnect();
