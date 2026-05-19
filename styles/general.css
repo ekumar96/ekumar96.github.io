@@ -49,6 +49,30 @@
 
   /* Secondary body font — Nunito, loaded via Google Fonts in index.html. */
   --font-secondary: "Nunito", system-ui, -apple-system, sans-serif;
+
+  /*
+    Fey-signature glass primitives — shared across the timeline cards,
+    project panels, and contact pill so the whole site speaks one glass
+    language. Mix-and-match as needed.
+
+    --glass-inset: paired inset highlights. The bottom edge is intentionally
+      BRIGHTER than the top (0.5 vs 0.2) — light enters from above, refracts
+      through the slab, and brightens the exit edge. This single shadow
+      stack is what makes a translucent surface read as "thick glass"
+      instead of a flat tinted div.
+
+    --glass-shadow: soft outer drop shadow so the element floats above
+      whatever's behind it (instead of looking pasted on).
+
+    --glass-glow: faint teal halo bleeding below — the colored light leak
+      you see beneath the Fey "Signup" pill. Reserved for the focal element
+      in each section (selected project panel, contact pill).
+  */
+  --glass-inset:
+    inset 0 3px 0 -2px rgba(255, 255, 255, 0.2),
+    inset 0 -3.25px 0 -2px rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --glass-glow: 0 24px 48px -16px rgba(29, 189, 168, 0.35);
 }
 
 a {

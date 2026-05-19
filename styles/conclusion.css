@@ -85,21 +85,25 @@
   text-align: center;
 }
 
+/*
+  The wrapper card is intentionally subtle — almost invisible — so the
+  contact pill below reads as the focal element instead of competing
+  with the card border. Think of the card as "the area where the pill
+  lives" rather than as a UI element of its own.
+*/
 .contact_card {
   padding: 3.5rem 2.5rem;
   border-radius: 24px;
   background:
     linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.06) 0%,
-      rgba(255, 255, 255, 0.02) 100%
+      rgba(255, 255, 255, 0.035) 0%,
+      rgba(255, 255, 255, 0.01) 100%
     );
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
 .contact .section_eyebrow {
@@ -119,6 +123,12 @@
   margin: 0 auto 2.5rem;
 }
 
+/*
+  Contact pill — the focal element of this section. Modeled directly on
+  the Fey "Signup to Fey" pill: dark glass body with bright inset edges,
+  a soft teal halo bleeding below, and one primary CTA button inside
+  flanked by smaller icon-only links.
+*/
 .contact_pill {
   display: inline-flex;
   align-items: center;
@@ -128,36 +138,58 @@
   gap: 0.5rem;
   padding: 0.5rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px) saturate(140%);
-  -webkit-backdrop-filter: blur(12px) saturate(140%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Fey signature + teal halo. The halo only shows when the pill sits
+     against dark background — which it does here. */
+  box-shadow: var(--glass-shadow), var(--glass-inset), var(--glass-glow);
 }
 
+/*
+  Primary CTA. Modeled on Fey's "Sync your broker" button: solid dark
+  fill (so it stands apart from the lighter pill body) with a thin
+  inset white ring (so it still reads as glass, not paint). On hover
+  the ring brightens — same idea as Fey's :hover bump from 0.04 to 0.12
+  on the inset width.
+*/
 .contact_email_btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.65rem 1.25rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #1a1a1a;
+  border: 0;
   color: #fff;
   font-family: var(--font-secondary);
+  font-weight: 500;
   font-size: 0.9rem;
   text-decoration: none;
-  transition: background-color 0.2s ease;
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.06);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .contact_email_btn:hover {
-  background: rgba(255, 255, 255, 0.16);
+  background: #232323;
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.16);
 }
 
 .contact_email_btn i {
   font-size: 0.95rem;
 }
 
+/*
+  Icon-only buttons sit flush inside the pill. On hover they get a
+  small inset Fey-style highlight pair scaled down for the smaller
+  footprint, so they feel like miniature versions of the same material.
+*/
 .contact_icon_btn {
   display: inline-flex;
   align-items: center;
@@ -168,12 +200,15 @@
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-size: 1.05rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .contact_icon_btn:hover {
   color: #fff;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    inset 0 1.5px 0 -1px rgba(255, 255, 255, 0.18),
+    inset 0 -1.5px 0 -1px rgba(255, 255, 255, 0.4);
 }
 
 .contact_email_text {
