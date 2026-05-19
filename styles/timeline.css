@@ -1,4 +1,3 @@
-/*Timeline CSS*/
 .timeline {
   position: relative;
   max-width: 1200px;
@@ -10,7 +9,6 @@
   align-items: center;
 }
 
-/* Section header — eyebrow + title pattern, mirrors eshankumar-io. */
 .section_header {
   width: 100%;
   max-width: 56rem;
@@ -95,25 +93,16 @@
   padding: 40px 70px;
 }
 
-/*
-  .exp_box (the <li>) = layout-only container, always visible. Holds the
-  always-visible <img class="exp_img"> and the fading card <label>.
-  .exp_card (the <label>) = the visual card itself; fades in.
-
-  The img sits as a sibling of the label inside .exp_box, so it doesn't
-  inherit the label's opacity. .exp_card fades with opacity only — NO
-  transform — because a transformed ancestor becomes the containing
-  block for absolute children, which would shift .logo_arrow inward
-  into the card.
-*/
+/* .exp_box (<li>) holds .exp_img + .exp_card as siblings. The card
+   fades via opacity only — no transform — because a transformed
+   ancestor would re-anchor .logo_arrow's absolute positioning. */
 .exp_box {
   list-style: none;
   margin: 20px;
   width: 43%;
   margin-right: auto;
   position: relative;
-  /* Hover lift lives on the LI (not the label) so both the absolute
-     <img> inside and the inner card label translate up together. */
+  /* Hover lift on the LI (not the card) so img + arrow lift together. */
   transition: translate 0.5s ease-in-out;
 }
 
@@ -127,18 +116,13 @@
 }
 
 .exp_card {
-  margin-top: 15px; /* shifts visible card down so it aligns with the logo */
+  margin-top: 15px;
   padding: 15px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
   color: white;
-
-  /* Glassmorphism: medium-hue tinted at low alpha so the page bleeds through,
-     backdrop-filter blurs what's behind it (the real "glass" cue),
-     translucent white border for the cut-edge, inset top highlight + outer
-     shadow for the lens-catching-light feel. */
   background-image: linear-gradient(
     180deg,
     rgba(50, 226, 226, 0.552) 0%,
@@ -146,8 +130,7 @@
   );
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
-  /* Border on three sides only — the arrow-side border is dropped so the
-     triangle joins the card without a 1px seam interrupting the glass. */
+  /* Arrow-side border dropped so the triangle joins seamlessly. */
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-right: 0;
   box-shadow:
@@ -155,15 +138,12 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
-/* Right-side (zig-zag) cards have the arrow on their LEFT, so drop the
-   left border instead and restore the right one. */
 .right_exp_box .exp_card {
   border-left: 0;
   border-right: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-/* Override global .hidden's transform so .logo_arrow positioning stays
-   relative to .exp_box, not the label. Fade is opacity-only. */
+/* Opacity-only fade (no transform) — see .exp_box for why. */
 .exp_card.hidden {
   opacity: 0;
   transform: none;
@@ -177,35 +157,54 @@
   transform: none;
 }
 
-/* CTA pills (e.g. "LSTM details", "Read paper"). Sits between .content and
-   .see_more so it isn't caught by the .exp_box .content a styles. */
+/* Sits between .content and .see_more so it escapes .exp_box .content a. */
 .cta_pill_row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 12px;
-  /* Match .content's 10px horizontal padding so the pill's left edge lines
-     up with the paragraph/list text above it. */
   padding: 0 10px;
 }
 
+/* CTA pill — small glass pill with a press-down hover. */
 .cta_pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.03) 100%
+    );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
   font-family: var(--font-secondary);
   font-size: 13px;
   text-decoration: none;
-  transition: background-color 0.2s ease;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.35),
+    var(--glass-inset);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.25s ease,
+    background-color 0.2s ease;
 }
 
 .cta_pill:hover {
-  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(1px);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+  /* Tighter + darker shadow on press, not a colored glow. */
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.5),
+    var(--glass-inset);
 }
 
 .cta_pill i {
@@ -246,7 +245,6 @@
   font-size: 20px;
 }
 
-/* See more / See less — mono uppercase + chevron, mirrors eshankumar-io. */
 .see_more {
   cursor: pointer;
   font-family: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
@@ -295,8 +293,7 @@
   z-index: 1;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
-  /* Match the card's top-stop tint so the arrow reads as a glass extension,
-     not a solid sticker. Card top stop is rgba(32,129,129,0.38). */
+  /* Tint must track the card's top gradient stop. */
   border-left: 15px solid rgba(50, 145, 145, 0.789);
   right: -15px;
 }
@@ -358,7 +355,6 @@ input[type="checkbox"]{
   padding: 10px 10px 20px;
 }
 
-/* Text swap + chevron rotation when card is expanded. */
 .accordion input[type="checkbox"]:checked + .box_header + h3 + .content + .see_more::before {
   content: 'See less';
 }
