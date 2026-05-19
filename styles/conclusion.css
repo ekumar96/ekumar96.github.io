@@ -21,8 +21,8 @@
 }
 
 .about_headshot {
-  width: 12rem;
-  height: 12rem;
+  width: 15rem;
+  height: 15rem;
   flex-shrink: 0;
   border-radius: 1rem;
   overflow: hidden;
