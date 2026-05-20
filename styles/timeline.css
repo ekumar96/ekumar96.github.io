@@ -194,16 +194,16 @@
 }
 
 .cta_pill:hover {
-  transform: translateY(1px);
+  transform: translateY(2px);
   background:
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(255, 255, 255, 0.04) 100%
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.07) 100%
     );
   /* Tighter + darker shadow on press, not a colored glow. */
   box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.5),
+    0 1px 4px rgba(0, 0, 0, 0.6),
     var(--glass-inset);
 }
 
@@ -351,7 +351,7 @@ input[type="checkbox"]{
 }
 
 .accordion input[type="checkbox"]:checked + .box_header + h3 + .content {
-  max-height: 300px;
+  max-height: 500px;
   padding: 10px 10px 20px;
 }
 
